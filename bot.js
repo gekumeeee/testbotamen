@@ -2121,6 +2121,24 @@ for(let i = 0; i <  n3k4a[member.user.id].roles.length + 1; i++) {
 member.addRole( n3k4a[member.user.id].roles.shift());
 }
 });
-
+client.on('message', message => {
+    if(message.content.startsWith("-google")) {
+        if(!message.channel.guild) return message.reply('** This command only for servers **');
+           const args = message.content.split(' ').slice(1);
+                let query = args;
+                message.channel.send({embed: {
+                    color: 3447003,
+                    title: "Your Search",
+                    url: `https://www.google.com/search?q=${query}`,
+                    description: "Look at your Search Query via Google.",
+                    timestamp: new Date(),
+                    footer: {
+                        icon_url: client.user.avatarURL,
+                        text: "Powered by Google"
+                    },
+                }});
+                
+    }
+});
 // THIS  MUST  BE  THIS  WAY
 client.login(process.env.BOT_TOKEN);
