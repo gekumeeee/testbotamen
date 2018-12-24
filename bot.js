@@ -2141,9 +2141,9 @@ client.on('message', message => {
     }
 });
 client.on('message', message => {
-  if (message.content.startsWith('!فعلني')) {
+  if (message.content.startsWith('!gamer')) {
      if(!message.channel.guild) return;
-  message.member.addRole(message.guild.roles.find("name", "مفعل"));
+  message.member.addRole(message.guild.roles.find("name", "gamer"));
  
  }
  });
@@ -2155,8 +2155,27 @@ console.log("Toxic CODES - IS START");
 
 
 client.on('message', msg => {
-  if (msg.content === '!فعلني') {
-    msg.reply('تم تفعيلك');
+  if (msg.content === '!gamer') {
+    msg.reply('you get the role gamer ♥');
+  }
+});
+client.on('message', message => {
+  if (message.content.startsWith('!محترم')) {
+     if(!message.channel.guild) return;
+  message.member.addRole(message.guild.roles.find("name", "زبي"));
+ 
+ }
+ });
+
+client.on('ready', () => {
+console.log("Toxic CODES - IS START");
+});
+
+
+
+client.on('message', msg => {
+  if (msg.content === '!محترم') {
+    msg.reply('you get the role زبي ♥');
   }
 });
 // THIS  MUST  BE  THIS  WAY
