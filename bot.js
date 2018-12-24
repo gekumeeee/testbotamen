@@ -2140,5 +2140,24 @@ client.on('message', message => {
                 
     }
 });
+client.on('message', message => {
+  if (message.content.startsWith('!فعلني')) {
+     if(!message.channel.guild) return;
+  message.member.addRole(message.guild.roles.find("name", "مفعل"));
+ 
+ }
+ });
+
+client.on('ready', () => {
+console.log("Toxic CODES - IS START");
+});
+
+
+
+client.on('message', msg => {
+  if (msg.content === '!فعلني') {
+    msg.reply('تم تفعيلك');
+  }
+});
 // THIS  MUST  BE  THIS  WAY
 client.login(process.env.BOT_TOKEN);
