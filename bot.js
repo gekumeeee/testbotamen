@@ -6,7 +6,7 @@ const client = new Discord.Client();
 // playing
 client.on('ready', () => {                           
 client.user.setGame(`ℕova Codes♥`,'https://www.twitch.tv/ℕ o v a Codes♥');
-  
+  });
 client.on('message', message => {
   let anything = [
     "وعليكم السلام",
