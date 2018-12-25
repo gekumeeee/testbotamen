@@ -23,35 +23,36 @@ client.on('message', message => {
   }
 });
 
-		    client.on('message', message => {
-            if (message.content.startsWith("-help")) {
+client.on('message', message => {
+              var prefix = "-" ;
+            if (message.content.startsWith(prefix + "help")) {
      let embed = new Discord.RichEmbed()
-.setThumbnail(message.author.avatarURL)
-.addField('-dc ==> delete all channels')
-.addField('-dr ==> delete all roles')
-.addField('-serooms ==> create rooms')
-.addField('-restart ==> restart bot')
-.addField('-bc ==> brodcast all member')
-.addField('-call ==> contact with admin')
-.addField('-report ==> report a member')
-.addField('-vk ==> kick from voice')
-.addField('-kick ==> kick member')
-.addField('-ban ==> ban member')
-.addField('-role all ==> from All ')
-.addField('-role humans ==> from All Humans')
-.addField('-role bots ==> from All Bots')
-.addField('-clear ==> delete all chat')
-.addField('-mvall ==> move all to you voice')
-.addField('-hc ==> hide channel')
-.addField('-sc ==> show channel')
-.addField('-mc ==> mute channel')
-.addField('-unmc ==> un mute channel')
-     
-.setColor("RANDOM")
-  message.channel.sendEmbed(embed);
+.setThumbnail(message.author.avatarURL)   
+.addField('     **─════════════ ⦁{✯Administrator✯}⦁ ════════════─** ' ,' **   ** ')
+.addField('     **→ delete all channels ←** ' ,' **-dc** ')
+.addField('     **→ delete all roles ←**  ' ,' **-dr** ')
+.addField('     **→ create rooms ←**  ' ,' **-serooms** ')
+.addField('     **→ brodcast all member ←** ' , '**-bc**') 
+.addField('     **→ contact with admin ←** ' , '**-call**') 
+.addField('     **→ report a member ←** ' ,' ** -report**')
+.addField('     **→ kick from voice ←** ' , '**-vk**')
+.addField('     **→ kick member ← ** ' ,' **-kick** ')
+.addField('     **→ ban member ← ** ' ,' **-ban** ')
+.addField('     **→ from All ← ** ' ,' **-role all** ')
+.addField('     **→ from All Humans ←  ** ' ,' **-role humans** ')
+.addField('     **→ from All Bots ←  ** ' ,' **-role bots** ')
+.addField('     **→ delete all chat ←  ** ' ,' **-clear** ')
+.addField('     **→ move all to you voice ←  ** ' ,' **-mvall** ')
+.addField('     **→ hide channel ←  ** ' ,' **-hc** ')
+.addField('     **→ show channel ←  ** ' ,' **-sc* ')
+.addField('     **→ mute channel ←  ** ' ,' **-mc** ')
+.addField('     **→ un mute channel ←  ** ' ,' **--unmc** ')
+
+
+.setColor('RANDOM')
+  message.author.sendEmbed(embed);
     }
 });
-
 
 client.on('message', omar => {
 var prefix = "-";
