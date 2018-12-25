@@ -27,6 +27,11 @@ client.on('message', message => {
               message.channel.send('**```-dc ==>delete all channels```**'); //الكلام الي يرسلو               
               message.channel.send('**```-dr ==>delete all roles```**'); //الكلام الي يرسلو
               message.channel.send('**```-serooms ==>create rooms```**'); //الكلام الي يرسلو
+              message.channel.send('**```-shutdown ==>shutdown bot```**'); //الكلام الي يرسلو
+
+              
+              
+              
             }
 });
 client.on('message', omar => {
