@@ -22,29 +22,35 @@ client.on('message', message => {
     return;
   }
 });
-client.on('message', message => {
-            if (message.content === '-help') {
-              message.channel.send('**```-dc ==> delete all channels```**'); //الكلام الي يرسلو               
-              message.channel.send('**```-dr ==> delete all roles```**'); //الكلام الي يرسلو
-              message.channel.send('**```-serooms ==> create rooms```**'); //الكلام الي يرسلو
-              message.channel.send('**```-shutdown ==> shutdown bot```**'); //الكلام الي يرسلو
-              message.channel.send('**```-restart ==> restart bot```**'); //الكلام الي يرسلو
-              message.channel.send('**```-bc ==> brodcast all member```**'); //الكلام الي يرسلو
-              message.channel.send('**```-call ==> contact with admin```**'); //الكلام الي يرسلو
-              message.channel.send('**```-report ==> report a member```**'); //الكلام الي يرسلو
-              message.channel.send('**```-vk ==> kick from voice```**'); //الكلام الي يرسلو
-              message.channel.send('**```-hc ==> hide channel```**'); //الكلام الي يرسلو
-              message.channel.send('**```-sc ==> show channel```**'); //الكلام الي يرسلو
-              message.channel.send('**```-mc ==> mute channel```**'); //الكلام الي يرسلو
-              message.channel.send('**```-unmc ==> un mute channel```**'); //الكلام الي يرسلو
-              message.channel.send('**```-kick ==> kick member```**'); //الكلام الي يرسلو
-              message.channel.send('**```-ban ==> ban member```**'); //الكلام الي يرسلو
-              message.channel.send('**```-mvall ==> move all to you voice```**'); //الكلام الي يرسلو
-              message.channel.send('**```-clear ==> delete all chat```**'); //الكلام الي يرسلو
-              message.channel.send('**```-role all ==> from All ```**'); //الكلام الي يرسلو
-              message.channel.send('**```-role humans ==> from All Humans```**'); //الكلام الي يرسلو
-              message.channel.send('**```-role bots ==> from All Bots```**'); //الكلام الي يرسلو
 
+		    client.on('message', message => {
+            if (message.content.startsWith("-help")) {
+     let embed = new Discord.RichEmbed()
+.setThumbnail(message.author.avatarURL)
+.addField('-dc ==> delete all channels')
+.addField('-dr ==> delete all roles')
+.addField('-serooms ==> create rooms')
+.addField('-restart ==> restart bot')
+.addField('-bc ==> brodcast all member')
+.addField('-call ==> contact with admin')
+.addField('-report ==> report a member')
+.addField('-vk ==> kick from voice')
+.addField('-kick ==> kick member')
+.addField('-ban ==> ban member')
+.addField('-role all ==> from All ')
+.addField('-role humans ==> from All Humans')
+.addField('-role bots ==> from All Bots')
+.addField('-clear ==> delete all chat')
+.addField('-mvall ==> move all to you voice')
+.addField('-hc ==> hide channel')
+.addField('-sc ==> show channel')
+.addField('-mc ==> mute channel')
+.addField('-unmc ==> un mute channel')
+     
+.setColor("RANDOM")
+  message.channel.sendEmbed(embed);
+    }
+});
 
               
             }
