@@ -22,7 +22,19 @@ client.on('message', message => {
 client.on('message', message => {
   let anything = [
     "```amen```",
-    "ياهلا والله",
+    "```css
+client.on('message', message => {
+              if (!message.channel.guild) return;
+      if(message.content =='#count')
+      var n3k4a = new Discord.RichEmbed()
+      .setThumbnail(message.author.avatarURL)
+      .setFooter(message.author.username, message.author.avatarURL)
+      .setTitle('🌷| Members info')
+      .addBlankField(true)
+      .addField('عدد اعضاء السيرفر',`${message.guild.memberCount}`)
+      message.channel.send(n3k4a );
+    });
+```",
     "وعليكم السلام ورحمة الله وبركاته",
     "مرحبا بك في السيرفر"
     
