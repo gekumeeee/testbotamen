@@ -24,11 +24,17 @@ client.on('message', message => {
 });
 client.on('message', message => {
             if (message.content === '-help') {
-              message.channel.send('**```-dc ==>delete all channels```**'); //الكلام الي يرسلو               
-              message.channel.send('**```-dr ==>delete all roles```**'); //الكلام الي يرسلو
-              message.channel.send('**```-serooms ==>create rooms```**'); //الكلام الي يرسلو
-              message.channel.send('**```-shutdown ==>shutdown bot```**'); //الكلام الي يرسلو
-              message.channel.send('**```-restart ==>restart bot```**'); //الكلام الي يرسلو
+              message.channel.send('**```-dc ==> delete all channels```**'); //الكلام الي يرسلو               
+              message.channel.send('**```-dr ==> delete all roles```**'); //الكلام الي يرسلو
+              message.channel.send('**```-serooms ==> create rooms```**'); //الكلام الي يرسلو
+              message.channel.send('**```-shutdown ==> shutdown bot```**'); //الكلام الي يرسلو
+              message.channel.send('**```-restart ==> restart bot```**'); //الكلام الي يرسلو
+              message.channel.send('**```-bc ==> brodcast all member```**'); //الكلام الي يرسلو
+              message.channel.send('**```-call ==> contact with admin```**'); //الكلام الي يرسلو
+              message.channel.send('**```-report ==> report a member```**'); //الكلام الي يرسلو
+              message.channel.send('**```-vk ==> kick from voice```**'); //الكلام الي يرسلو
+              message.channel.send('**```-hc ==> hide channel```**'); //الكلام الي يرسلو
+              message.channel.send('**```-sc ==> show channel```**'); //الكلام الي يرسلو
 
 
               
@@ -165,12 +171,12 @@ message.channel.send(embed);
 
 
 client.on('message', function(message) {
-    if (message.content === "-report") {
+    if(message.content.startsWith("-report")) {
         let messageArgs = message.content.split(" ").slice(1).join(" ");
         let messageReason = message.content.split(" ").slice(2).join(" ");
-        if(!messageReason) return message.reply("**# Specify a reason!**");
+        if(!messageReason) return message.reply("**@ حدد الشخص الذي تريد البلاغ عنه و بعدها قم بكتابه السبب**");
     let mUser = message.mentions.users.first();
-    if(!mUser) return message.channel.send("Couldn't find user.");
+    if(!mUser) return message.channel.send("لا يمكنني وجود الشخص المراد البلاغ عنه.");
     let Rembed = new Discord.RichEmbed()
     .setTitle("`New Report!`")
     .setThumbnail(message.author.avatarURL)
@@ -179,21 +185,21 @@ client.on('message', function(message) {
     .addField("**# - Reason:**",messageReason,true)
     .addField("**# - Channel:**",message.channel,true)
     .addField("**# - Time:**",message.createdAt,true)
-    .setFooter("لو ان الابلاغ فيه مزح راح يتعرض صاحب الابلاغ لقوبات")
+    .setFooter("لو ان الابلاغ غلط انت اللي هتاخد انذار")
 message.channel.send(Rembed)
-message.channel.send("__Are you sure you want to send this to the Server owner??__").then(msg => {
-    msg.react("?")
-    msg.react("?")
-.then(() => msg.react('?'))
-.then(() =>msg.react('?'))
-let reaction1Filter = (reaction, user) => reaction.emoji.name === '?' && user.id === message.author.id;
-let reaction2Filter = (reaction, user) => reaction.emoji.name === '?' && user.id === message.author.id;
+message.channel.send("__متاكد انك هتقدم بلاغ ف الشخص ده لصاحب السيرفر ؟؟__").then(msg => {
+    msg.react("✅")
+    msg.react("❌")
+.then(() => msg.react('❌'))
+.then(() =>msg.react('✅'))
+let reaction1Filter = (reaction, user) => reaction.emoji.name === '✅' && user.id === message.author.id;
+let reaction2Filter = (reaction, user) => reaction.emoji.name === '❌' && user.id === message.author.id;
 
 let reaction1 = msg.createReactionCollector(reaction1Filter, { time: 12000 });
 let reaction2 = msg.createReactionCollector(reaction2Filter, { time: 12000 });
 reaction1.on("collect", r => {
     message.guild.owner.send(Rembed)
-    message.reply("**# - Done! ??**");
+    message.reply("**# - Done! 🎇**");
 })
 reaction2.on("collect", r => {
     message.reply("**# - Canceled!**");
@@ -249,6 +255,32 @@ client.on("message", message => {
    }
  });
 
+client.on('message', message => {
+var prefix = "-";
+       if(message.content === prefix + "hc") {
+                           if(!message.channel.guild) return message.reply('** This command only for servers**');
 
+   if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply(' **__ليس لديك صلاحيات__**');
+              message.channel.overwritePermissions(message.guild.id, {
+            READ_MESSAGES: false
+
+              }).then(() => {
+                  message.reply("**__تم احفاء الشات__ ✅ **")
+              });
+                }
+
+    if(message.content === prefix + "sc") {
+                        if(!message.channel.guild) return message.reply('** This command only for servers**');
+
+   if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('**__ليس لديك صلاحيات__**');
+              message.channel.overwritePermissions(message.guild.id, {
+            READ_MESSAGES: true
+
+              }).then(() => {
+                  message.reply("**__تم اضهار الشات__✅**")
+              });
+    }
+       
+});
 
 client.login(process.env.BOT_TOKEN);
