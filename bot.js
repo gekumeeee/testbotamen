@@ -125,10 +125,8 @@ client.on('message',async message => {//Toxic Code
   }
 });
 
-const Discord = require("discord.js");
-const client = new Discord.Client();
-const prefix = "^";
-    if (message.content === "-discrim") {
+const prefix = "-";
+    if (message.content === prefix + "discrim") {
 let messageArray = message.content.split(" ");
 let args = messageArray.slice(1);
 
