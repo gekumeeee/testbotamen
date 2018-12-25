@@ -111,7 +111,6 @@ client.on('message',async message => {//Toxic Codes
         setTimeout(() => {
             client.destroy();
         },3000);
-    }//Toxic Codes
 });
 
 client.login(process.env.BOT_TOKEN);
