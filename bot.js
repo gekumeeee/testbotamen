@@ -125,37 +125,38 @@ client.on('message',async message => {//Toxic Code
   }
 });
 
-client.on("message", message => {
-  if(message.content.startsWith("-فعل")) {
-    let num = Math.floor((Math.random() * 4783) + 10);
-        message.channel.send(`**يرجاء كتابة الرقم التالي:** **${num}**`).then(m => {//Toxic Codes
-      message.channel.awaitMessages(res => res.content == `${num}`, {//Toxic Codes
-        max: 1,
-        time: 60000,
-        errors: ['time'],
-      }).then(collected => {//Toxic Codes
-        message.delete();
-        m.delete();
-        message.member.addRole(message.guild.roles.find(c => c.name == "Active"));  //  اسم الرتبة
-      }).catch(() => {//Toxic Codes
-        m.edit(`لقد أخذت وقتًا طويلاً لكتابة الرقم.  قم بإعادة كتابة الأمر مرة أخرى إذا كنت تريد التحقق من هويتك..`).then(m2 => m.delete(15000));
-      });
-    });
-  }
-});
+const Discord = require("discord.js");
+const client = new Discord.Client();
+const prefix = "^";
+    if (message.content === "-discrim") {
+let messageArray = message.content.split(" ");
+let args = messageArray.slice(1);
 
-client.on("message", msg => {
-let ownerid = '351366504068939777'
-if(msg.content === `<@${ownerid}>`){
-bot.users.get(ownerid).send(`
-في واحد منشنك
+if (message.author.bot) return;
 
-بسيرفر: :arrow_down:
-\`${msg.guild.name}\`
- 
-By: :arrow_down:
-***${msg.author}***`);
+var discri = args[0]
+let discrim
+if(discri){
+discrim = discri;
+}else{
+discrim = message.author.discriminator;
 }
-})
+if(discrim.length == 1){
+discrim = "000"+discrim
+}
+if(discrim.length == 2){
+discrim = "00"+discrim
+}
+if(discrim.length == 3){
+discrim = "0"+discrim
+}
+
+const users = client.users.filter(user => user.discriminator === discrim).map(user => user.username);
+return message.channel.send(`
+**Found ${users.length} users with the discriminator #${discrim}**
+${users.join('\n')}
+`);
+}
+});
 
 client.login(process.env.BOT_TOKEN);
