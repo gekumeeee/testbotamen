@@ -35,10 +35,17 @@ client.on('message', message => {
               message.channel.send('**```-vk ==> kick from voice```**'); //الكلام الي يرسلو
               message.channel.send('**```-hc ==> hide channel```**'); //الكلام الي يرسلو
               message.channel.send('**```-sc ==> show channel```**'); //الكلام الي يرسلو
+              message.channel.send('**```-mc ==> mute channel```**'); //الكلام الي يرسلو
+              message.channel.send('**```-unmc ==> un mute channel```**'); //الكلام الي يرسلو
+              message.channel.send('**```-kick ==> kick member```**'); //الكلام الي يرسلو
+              message.channel.send('**```-ban ==> ban member```**'); //الكلام الي يرسلو
+              message.channel.send('**```-mvall ==> move all to you voice```**'); //الكلام الي يرسلو
+              message.channel.send('**```-clear ==> delete all chat```**'); //الكلام الي يرسلو
+              message.channel.send('**```-role all ==> from All ```**'); //الكلام الي يرسلو
+              message.channel.send('**```-role humans ==> from All Humans```**'); //الكلام الي يرسلو
+              message.channel.send('**```-role bots ==> from All Bots```**'); //الكلام الي يرسلو
 
 
-              
-              
               
             }
 });
@@ -210,50 +217,60 @@ reaction2.on("collect", r => {
 
 client.on("ready", async  => {
 setInterval(function(){
-client.channels.find('id', '527077510161104917').setName("♥");
-client.channels.find('id', '527077510161104917').setName("♥W");
-client.channels.find('id', '527077510161104917').setName("♥We");
-client.channels.find('id', '527077510161104917').setName("♥Wel");
-client.channels.find('id', '527077510161104917').setName("♥Welc");
-client.channels.find('id', '527077510161104917').setName("♥Welco");
-client.channels.find('id', '527077510161104917').setName("♥Welcom");
-client.channels.find('id', '527077510161104917').setName("♥Welcome ");
-client.channels.find('id', '527077510161104917').setName("♥Welcome T");
-client.channels.find('id', '527077510161104917').setName("♥Welcome To");
-client.channels.find('id', '527077510161104917').setName("♥Welcome To C");
-client.channels.find('id', '527077510161104917').setName("♥Welcome To Co");
-client.channels.find('id', '527077510161104917').setName("♥Welcome To Cod");
-client.channels.find('id', '527077510161104917').setName("♥Welcome To Code");
-client.channels.find('id', '527077510161104917').setName("♥Welcome To Codes");
-client.channels.find('id', '527077510161104917').setName("♥Welcome To Codes♥");
-}, 3000);
+bot.editChannel("523645471248482324", { name : "❤"});
+bot.editChannel("523645471248482324", { name : "❤W"});
+bot.editChannel("523645471248482324", { name : "❤We"});
+bot.editChannel("523645471248482324", { name : "❤Wel"});
+bot.editChannel("523645471248482324", { name : "❤Welc"});
+bot.editChannel("523645471248482324", { name : "❤Welco"});
+bot.editChannel("523645471248482324", { name : "❤Welcom"});
+bot.editChannel("523645471248482324", { name : "❤Welcome"});
+bot.editChannel("523645471248482324", { name : "❤Welcome "});
+bot.editChannel("523645471248482324", { name : "❤Welcome T"});
+bot.editChannel("523645471248482324", { name : "❤Welcome To"});
+bot.editChannel("523645471248482324", { name : "❤Welcome To "});
+bot.editChannel("523645471248482324", { name : "❤Welcome To C"});
+bot.editChannel("523645471248482324", { name : "❤Welcome To Co"});
+bot.editChannel("523645471248482324", { name : "❤Welcome To Cod"});
+bot.editChannel("523645471248482324", { name : "❤Welcome To Code"});
+bot.editChannel("523645471248482324", { name : "❤Welcome To Codes"});
+bot.editChannel("523645471248482324", { name : "❤Welcome To Codes❤"});
+
+
+}, 4000);
 });
 
 client.on("message", message => {
-   let men = message.mentions.users.first();
-    if (message.content === "-vk") {
-     try {
-     if(!men) {
-       message.channel.send("**Mention A Person**");
-       return;
-     }
-     if(!message.guild.member(men).voiceChannel) return message.channel.send("The Person Not In A VoiceChannel");
-     if(!message.member.hasPermission("MOVE_MEMBERS")) return message.channel.send("You Dont Have Permissions To Kick This Person")
-     if(!message.guild.me.hasPermission("MOVE_MEMBERS")) return message.channel.send("The Bot Not Have Permissions To Kick This Person");
-        if(!message.guild.me.hasPermission("MANAGE_CHANNELS")) return message.channel.send("I Dont Have Permissions To Create VoiceChannel")
- 
-     message.guild.createChannel("vKick", "voice").then(c => {
-       message.guild.member(men).setVoiceChannel(c.id)
-     setTimeout(() => {
-       c.delete()
-     }, 100)
+    var prefix = "-";
+    const command = message.content.split(" ")[0];
+
+    if(command == prefix+"kv"){
+
+        if (!message.guild.member(message.author).hasPermission('MOVE_MEMBERS') || !message.guild.member(message.author).hasPermission('ADMINISTRATOR')) {
+            return message.reply('you do not have permission to perform this action!');
+        }
+
+        var member = message.guild.members.get(message.mentions.users.array()[0].id);
+        if(!message.mentions.users){
+            message.reply("please mention the member")
+            return;
+        }
+
+    if(!member.voiceChannel){
+    message.reply("i can't include voice channel for member!")
+    return;
+    }
+              message.guild.createChannel('voicekick', 'voice').then(c => {
+                member.setVoiceChannel(c).then(() => {
+                    c.delete(305).catch(console.log)
+        
+
+
+    
+      });
      });
-     message.channel.send(`**Has Been Kicked From The VoiceChannel \`\`${men.username}\`\`**`)
- } catch (e) {
-   message.channel.send("I Cant Do This For Permissions Or Something :/");
- }
-   }
- });
+    }
+});
 
 client.on('message', message => {
 var prefix = "-";
@@ -277,10 +294,226 @@ var prefix = "-";
             READ_MESSAGES: true
 
               }).then(() => {
-                  message.reply("**__تم اضهار الشات__✅**")
+                  message.reply("**__تم اظهار الشات__✅**")
               });
     }
        
 });
+
+client.on('message', message => {
+	var prefix = "-"
+  if (message.author.x5bz) return;
+  if (!message.content.startsWith(prefix)) return;
+
+  let command = message.content.split(" ")[0];
+  command = command.slice(prefix.length);
+
+  let args = message.content.split(" ").slice(1);
+
+  if (command == "kick") {
+               if(!message.channel.guild) return message.reply('** This command only for servers**');
+         
+  if(!message.guild.member(message.author).hasPermission("KICK_MEMBERS")) return message.reply("**You Don't Have ` KICK_MEMBERS ` Permission**");
+  if(!message.guild.member(client.user).hasPermission("KICK_MEMBERS")) return message.reply("**I Don't Have ` KICK_MEMBERS ` Permission**");
+  let user = message.mentions.users.first();
+  let reason = message.content.split(" ").slice(2).join(" ");
+  if (message.mentions.users.size < 1) return message.reply("**Mention SomeOne**");
+  if(!reason) return message.reply ("**Write A Reason**");
+  if (!message.guild.member(user)
+  .kickable) return message.reply("**I Cant Kick SomeOne High Than My Rank**");
+
+  message.guild.member(user).kick();
+
+  const kickembed = new Discord.RichEmbed()
+  .setAuthor(`KICKED!`, user.displayAvatarURL)
+  .setColor("RANDOM")
+  .setTimestamp()
+  .addField("**User:**",  '**[ ' + `${user.tag}` + ' ]**')
+  .addField("**By:**", '**[ ' + `${message.author.tag}` + ' ]**')
+  .addField("**Reason:**", '**[ ' + `${reason}` + ' ]**')
+  message.channel.send({
+    embed : kickembed
+  })
+}
+});
+
+
+
+client.on('message', message => {
+	var prefix = "-"
+  if (message.author.x5bz) return;
+  if (!message.content.startsWith(prefix)) return;
+
+  let command = message.content.split(" ")[0];
+  command = command.slice(prefix.length);
+
+  let args = message.content.split(" ").slice(1);
+
+  if (command == "ban") {
+               if(!message.channel.guild) return message.reply('** This command only for servers**');
+         
+  if(!message.guild.member(message.author).hasPermission("BAN_MEMBERS")) return message.reply("**You Don't Have ` BAN_MEMBERS ` Permission**");
+  if(!message.guild.member(client.user).hasPermission("BAN_MEMBERS")) return message.reply("**I Don't Have ` BAN_MEMBERS ` Permission**");
+  let user = message.mentions.users.first();
+  let reason = message.content.split(" ").slice(2).join(" ");
+  if (message.mentions.users.size < 1) return message.reply("**Mention SomeOne**");
+  if(!reason) return message.reply ("**Write A Reason**");
+  if (!message.guild.member(user)
+  .bannable) return message.reply("**I Cant BAN SomeOne High Than My Rank**");
+
+  message.guild.member(user).ban(7, user);
+
+  const banembed = new Discord.RichEmbed()
+  .setAuthor(`BANNED!`, user.displayAvatarURL)
+  .setColor("RANDOM")
+  .setTimestamp()
+  .addField("**User:**",  '**[ ' + `${user.tag}` + ' ]**')
+  .addField("**By:**", '**[ ' + `${message.author.tag}` + ' ]**')
+  .addField("**Reason:**", '**[ ' + `${reason}` + ' ]**')
+  message.channel.send({
+    embed : banembed
+  })
+}
+});
+
+
+
+client.on('message', message => {
+var prefix = "-";
+       if(message.content === prefix + "mc") {
+                           if(!message.channel.guild) return message.reply('** This command only for servers**');
+
+   if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply(' **You Dont Have Perms**');
+              message.channel.overwritePermissions(message.guild.id, {
+            SEND_MESSAGES: false
+
+              }).then(() => {
+                  message.reply("**:white_check_mark: Success Has Been Locked Channel**")
+              });
+                }
+    if(message.content === prefix + "unmc") {
+                        if(!message.channel.guild) return message.reply('** This command only for servers**');
+
+   if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('**You Dont Have Perms**');
+              message.channel.overwritePermissions(message.guild.id, {
+            SEND_MESSAGES: true
+
+              }).then(() => {
+                  message.reply("**:white_check_mark: Success Has Been UnLocked Channel**")
+              });
+    }
+       
+});
+
+
+client.on('message', message => {
+	var prefix = "-";
+   if(!message.channel.guild) return;
+if(message.content.startsWith(prefix + 'clear')) {
+if(!message.channel.guild) return message.channel.send('**This Command is Just For Servers**').then(m => m.delete(5000));
+if(!message.member.hasPermission('MANAGE_MESSAGES')) return      message.channel.send('**You Do not have permission** `MANAGE_MESSAGES`' );
+let args = message.content.split(" ").join(" ").slice(2 + prefix.length);
+let request = `Requested By ${message.author.username}`;
+message.channel.send(`**Are You sure you want to clear the chat?**`).then(msg => {
+msg.react('✅')
+.then(() => msg.react('❌'))
+.then(() =>msg.react('✅'))
+
+let reaction1Filter = (reaction, user) => reaction.emoji.name === '✅' && user.id === message.author.id;
+let reaction2Filter = (reaction, user) => reaction.emoji.name === '❌' && user.id === message.author.id;
+
+let reaction1 = msg.createReactionCollector(reaction1Filter, { time: 12000 });
+let reaction2 = msg.createReactionCollector(reaction2Filter, { time: 12000 });
+reaction1.on("collect", r => {
+message.channel.send(`Chat will delete`).then(m => m.delete(5000));
+var msg;
+        msg = parseInt();
+
+      message.channel.fetchMessages({limit: msg}).then(messages => message.channel.bulkDelete(messages)).catch(console.error);
+      message.channel.sendMessage("", {embed: {
+        title: "`` Chat Deleted ``",
+        color: 0x06DF00,
+        footer: {
+
+        }
+      }}).then(msg => {msg.delete(3000)});
+
+})
+reaction2.on("collect", r => {
+message.channel.send(`**Chat deletion cancelled**`).then(m => m.delete(5000));
+msg.delete();
+})
+})
+}
+});
+
+
+
+
+client.on("message", message => {
+	var prefix = "-";
+	var args = message.content.split(' ').slice(1); 
+	var msg = message.content.toLowerCase();
+	if( !message.guild ) return;
+	if( !msg.startsWith( prefix + 'role' ) ) return;
+	if(!message.member.hasPermission('MANAGE_ROLES')) return message.channel.send(' **__You Dont Have Permissions__**');
+	if( msg.toLowerCase().startsWith( prefix + 'roleremove' ) ){
+		if( !args[0] ) return message.reply( '**:x: Mention User**' );
+		if( !args[1] ) return message.reply( '**:x: Write Name Of Role To Remove it From The User**' );
+		var role = msg.split(' ').slice(2).join(" ").toLowerCase(); 
+		var role1 = message.guild.roles.filter( r=>r.name.toLowerCase().indexOf(role)>-1 ).first(); 
+		if( !role1 ) return message.reply( '**:x: Mention Role To Remove it From The User**' );if( message.mentions.members.first() ){
+			message.mentions.members.first().removeRole( role1 );
+			return message.reply('**:white_check_mark: Success Removed Role [ '+role1.name+' ] From [ '+args[0]+' ]**');
+		}
+		if( args[0].toLowerCase() == "all" ){
+			message.guild.members.forEach(m=>m.removeRole( role1 ))
+			return	message.reply('**:white_check_mark: Succes Removed Rank [ '+role1.name+' ]  From All**');
+		} else if( args[0].toLowerCase() == "bots" ){
+			message.guild.members.filter(m=>m.user.bot).forEach(m=>m.removeRole(role1))
+			return	message.reply('**:white_check_mark: Succes Removed Rank [ '+role1.name+' ] From All Bots**');
+		} else if( args[0].toLowerCase() == "humans" ){
+			message.guild.members.filter(m=>!m.user.bot).forEach(m=>m.removeRole(role1))
+			return	message.reply('**:white_check_mark: Succes Removed Rank [ '+role1.name+' ] From All Humans**');
+		} 	
+	} else {
+		if( !args[0] ) return message.reply( '**:x: Mention User**' );
+		if( !args[1] ) return message.reply( '**:x: Write Name Of Role To Give It To User**' );
+		var role = msg.split(' ').slice(2).join(" ").toLowerCase(); 
+		var role1 = message.guild.roles.filter( r=>r.name.toLowerCase().indexOf(role)>-1 ).first(); 
+		if( !role1 ) return message.reply( '**:x: Write Name Of Role To Give It To User**' );if( message.mentions.members.first() ){
+			message.mentions.members.first().addRole( role1 );
+			return message.reply('**:white_check_mark:Success Gived Rank [ '+role1.name+' ] To [ '+args[0]+' ]**');
+		}
+		if( args[0].toLowerCase() == "all" ){
+			message.guild.members.forEach(m=>m.addRole( role1 ))
+			return	message.reply('**:white_check_mark: Success Gived All Rank [ '+role1.name+' ]**');
+		} else if( args[0].toLowerCase() == "bots" ){
+			message.guild.members.filter(m=>m.user.bot).forEach(m=>m.addRole(role1))
+			return	message.reply('**:white_check_mark: Success Gived All Bots Rank [ '+role1.name+' ] **');
+		} else if( args[0].toLowerCase() == "humans" ){
+			message.guild.members.filter(m=>!m.user.bot).forEach(m=>m.addRole(role1))
+			return	message.reply('**:white_check_mark: Success Gived All Humans Rank [ '+role1.name+' ]**');
+		} 
+	} 
+});
+
+
+client.on('message', message => {
+	var prefix = "-";
+    if(message.content.startsWith(prefix + 'mvall')) {
+     if (!message.member.hasPermission("MOVE_MEMBERS")) return message.channel.send('**:x: You Dont Have Perms `MOVE_MEMBERS`**');
+       if(!message.guild.member(client.user).hasPermission("MOVE_MEMBERS")) return message.reply("**:x: I Dont Have Perms `MOVE_MEMBERS`**");
+    if (message.member.voiceChannel == null) return message.channel.send(`**You Have To Be In Room Voice**`)
+     var author = message.member.voiceChannelID;
+     var m = message.guild.members.filter(m=>m.voiceChannel)
+     message.guild.members.filter(m=>m.voiceChannel).forEach(m => {
+     m.setVoiceChannel(author)
+     })
+     message.channel.send(`**:white_check_mark: Success Moved All To Your Channel**`)
+
+
+     }
+       });
 
 client.login(process.env.BOT_TOKEN);
