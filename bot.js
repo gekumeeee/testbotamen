@@ -28,6 +28,8 @@ client.on('message', message => {
               message.channel.send('**```-dr ==>delete all roles```**'); //الكلام الي يرسلو
               message.channel.send('**```-serooms ==>create rooms```**'); //الكلام الي يرسلو
               message.channel.send('**```-shutdown ==>shutdown bot```**'); //الكلام الي يرسلو
+              message.channel.send('**```-restart ==>restart bot```**'); //الكلام الي يرسلو
+
 
               
               
@@ -93,6 +95,23 @@ client.on('message' , message => {
         }
        
     }
+});
+client.on('message',async message => {//Toxic Codes
+      if(message.content.startsWith("-restart")){//Toxic Codes
+          if(message.author.id !== "351366504068939777") return message.reply('You aren\'t the bot owner.');
+        message.channel.send('**Restarting.**').then(msg => {//Toxic Codes
+            setTimeout(() => {//Toxic Codes
+               msg.edit('**Restarting..**');
+          //Toxic Codes  },1000);//Toxic Codes
+            setTimeout(() => {
+               msg.edit('**✅ **').then(message =>{message.delete(5000)})
+            },2000);
+    //Toxic Codes    });//Toxic Codes
+        console.log(`Restarting..`);//Toxic Codes
+        setTimeout(() => {
+            client.destroy();
+        },3000);
+    }//Toxic Codes
 });
 
 client.login(process.env.BOT_TOKEN);
