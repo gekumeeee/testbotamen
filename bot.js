@@ -153,7 +153,6 @@ const users = client.users.filter(user => user.discriminator === discrim).map(us
 return message.channel.send(`
 **Found ${users.length} users with the discriminator #${discrim}**
 ${users.join('\n')}
-`);
 }
 });
 
