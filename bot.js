@@ -70,5 +70,24 @@ message.channel.sendMessage('الرجاء الانتظار ريث ما يتم ص
 }
 });
 
+client.on('message' , message => {
+    if (message.content === "-shutdown") {
+        if(message.author.id !== "351366504068939777") return message.reply('**You aren\'t the bot owner.**');
+        if ((r=>[""].includes(r.name)) ) {
+                     message.channel.sendMessage("**Currently Shutting down...** ") // This Code Edit By Mazchy . 
+        setTimeout(function() {
+            client.destroy();
+            process.exit(0);
+        }, 2000);
+        } else {
+
+            return message.reply(`I cannot do that for you unfortunately`)
+                .then(message => {
+                    message.delete(10000);
+                }).catch(console.log);
+        }
+       
+    }
+});
 
 client.login(process.env.BOT_TOKEN);
