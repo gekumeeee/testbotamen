@@ -252,7 +252,7 @@ member.addRole( geky[member.user.id].roles.shift());
 client.on('message', message => {
   if (true) {
 if (message.content === '.invite') {
-      message.author.send('  رابط بوتك  |  تفضل ربط البوت     ').catch(e => console.log(e.stack));
+      message.author.send('https://discordapp.com/api/oauth2/authorize?client_id=516173111817797664&permissions=8&scope=bot').catch(e => console.log(e.stack));
  
     }
    }
