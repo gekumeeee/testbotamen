@@ -126,7 +126,7 @@ client.on('message',async message => {//Toxic Code
 });
 
 client.on("message", message => {
-  if(message.content.startsWith("-verify")) {     // ااكتب البرفيكس والامر 
+  if(message.content.startsWith("-فعل")) {
     let num = Math.floor((Math.random() * 4783) + 10);
         message.channel.send(`**يرجاء كتابة الرقم التالي:** **${num}**`).then(m => {//Toxic Codes
       message.channel.awaitMessages(res => res.content == `${num}`, {//Toxic Codes
