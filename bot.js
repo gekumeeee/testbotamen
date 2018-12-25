@@ -829,62 +829,6 @@ message.channel.sendMessage('الرجاء الانتظار ريث ما يتم ص
 }
 });
 
-Save New Duplicate & Edit Just Text Twitter
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
 client.on("message", (message) => {
     /// DREAM
    if (message.content.startsWith("-new")) {     /// DREAM
@@ -940,4 +884,10 @@ client.on("message", (message) => {
    }
  
 });
+client.on('ready', () => {
+client.user.setGame(``,'https://www.twitch.tv/tarikrs');
+client.user.setGame(`Test Nova Codes`,'https://www.twitch.tv/N o v a codess');
+});
+
+
 client.login("NTE2MTczMTExODE3Nzk3NjY0.DwNcgA.UI5ijeV9Yh5V_ik3PaJWIy5dI9s");  // توكن حقق
