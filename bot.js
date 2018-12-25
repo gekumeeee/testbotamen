@@ -64,7 +64,7 @@ client.on('message', message => {
      message.guild.createChannel('Public ❤', 'voice')
      message.guild.createChannel('Public ✿', 'voice')
      message.guild.createChannel('Public ★', 'voice')
-
+     message.guild.createChannel('✲-bot', 'text')
 
      message.guild.createChannel('✲-great-chat', 'text')
 
