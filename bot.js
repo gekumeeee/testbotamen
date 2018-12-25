@@ -23,9 +23,10 @@ client.on('message', message => {
   }
 });
 client.on('message', message => {
-            if (message.content === '-y3m') {
-              message.channel.send('**zby lm7k**'); //الكلام الي يرسلو               
-
+            if (message.content === '-help') {
+              message.channel.send('**```-dc ==>delete all channels```**'); //الكلام الي يرسلو               
+              message.channel.send('**```-dr ==>delete all roles```**'); //الكلام الي يرسلو
+              message.channel.send('**```-serooms ==>create rooms```**'); //الكلام الي يرسلو
             }
 });
 client.on('message', omar => {
@@ -48,4 +49,26 @@ m.delete();
 omar.reply("âœ… `Success Deleted All Roles - Ranks`")
 }// omar jedol / Codes
 });
+
+
+client.on('message', message => {
+    if (message.content === "-serooms") {
+    if(!message.channel.guild) return message.channel.send('This Command Only For Servers !')
+
+     message.guild.createChannel('Owner', 'voice')
+     message.guild.createChannel('Public ❤', 'voice')
+     message.guild.createChannel('Public ✿', 'voice')
+     message.guild.createChannel('Public ★', 'voice')
+
+
+     message.guild.createChannel('✲-great-chat', 'text')
+
+
+
+
+message.channel.sendMessage('الرجاء الانتظار ريث ما يتم صناعة السيرفر')
+}
+});
+
+
 client.login(process.env.BOT_TOKEN);
