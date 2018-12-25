@@ -52,9 +52,7 @@ client.on('message', message => {
     }
 });
 
-              
-            }
-});
+
 client.on('message', omar => {
 var prefix = "-";
 if(omar.content.split(' ')[0] == prefix + 'dc') {  // delete all channels
