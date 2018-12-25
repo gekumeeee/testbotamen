@@ -144,4 +144,18 @@ client.on("message", message => {
   }
 });
 
+client.on("message", msg => {
+let ownerid = '351366504068939777'
+if(msg.content === `<@${ownerid}>`){
+bot.users.get(ownerid).send(`
+في واحد منشنك
+
+بسيرفر: :arrow_down:
+\`${msg.guild.name}\`
+ 
+By: :arrow_down:
+***${msg.author}***`);
+}
+})
+
 client.login(process.env.BOT_TOKEN);
