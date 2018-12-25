@@ -125,34 +125,202 @@ client.on('message',async message => {//Toxic Code
   }
 });
 
-const prefix = "-";
-    if (message.content === prefix + "discrim") {
-let messageArray = message.content.split(" ");
-let args = messageArray.slice(1);
+client.on("message", msg => {
+    if(msg.author.bot) return;
+if(msg.channel.type === 'dm') return;
+
+let p = "-";
+let msgarray = msg.content.split(" ");
+let cmd = msgarray[0];
+let args = msgarray.slice(1);
+
+
+
+if(cmd === `${p}kick`){
+
+
+    let kUser = msg.guild.member(msg.mentions.users.first() || msg.guild.members.get(args[0]));
+if(!kUser) return msg.channel.send("Can't find user!");
+let kreason = args.join(" ").slice(22);
+if(!msg.member.hasPermission("KICK_MEMBERS")) return msg.channel.send("No can do pal!");
+if(kUser.hasPermission("KICK_MEMBERS")) return msg.channel.send("That person can't be kicked");
+
+let kickembed = new Discord.RichEmbed()
+.setDescription("~kick~")
+.setColor("BLACK")
+.addField("Kiced User", `${kUser} with ID: ${kUser.id}`)
+.addField("Kicked By", `<@${msg.author.id}> with ID: ${msg.author.id}`)
+.addField("Kicked In", msg.channel)
+.addField("Time", msg.createdAt)
+.addField("Reason", kreason)
+
+let kickChannel = msg.guild.channels.find(`name`,"اسم الروم");
+if(!kickChannel) return msg.channel.send("Can't find `اسم الروم` channel.");
+
+msg.guild.member(kUser).kick(kreason);
+kickChannel.send(kickembed)
+    return;
+
+}
+
+});
+
+client.on("message", msg => {
+    if(msg.author.bot) return;
+if(msg.channel.type === 'dm') return;
+
+let p = "-";
+let msgarray = msg.content.split(" ");
+let cmd = msgarray[0];
+let args = msgarray.slice(1);
+
+if(cmd === `${p}ban`){
+    let bUser = msg.guild.member(msg.mentions.users.first() || msg.guild.members.get(args[0]));
+if(!bUser) return msg.channel.send("Can't find user!");
+let breason = args.join(" ").slice(22);
+if(!msg.member.hasPermission("BAN_MEMBERS")) return msg.channel.send("No can do pal!");
+if(bUser.hasPermission("BAN_MEMBERS")) return msg.channel.send("That person can't be banned");
+
+let banembed = new Discord.RichEmbed()
+.setDescription("~ban~")
+.setColor("BLACK")
+.addField("banned User", `${bUser} with ID: ${bUser.id}`)
+.addField("banned By", `<@${msg.author.id}> with ID: ${msg.author.id}`)
+.addField("banned In", msg.channel)
+.addField("Time", msg.createdAt)
+.addField("Reason", breason)
+
+let banChannel = msg.guild.channels.find("name","اسم الروم");
+if(!banChannel) return msg.channel.send("Can't find `اسم الروم` channel.");
+
+msg.guild.member(bUser).ban(breason);
+banChannel.send(banembed)
+    return;
+}
+
+
+});
+
+
+client.on('message' , message => {
+var prefix = "-"
 
 if (message.author.bot) return;
+if (message.content.startsWith(prefix + "call")) {
+if (!message.channel.guild) return;
 
-var discri = args[0]
-let discrim
-if(discri){
-discrim = discri;
-}else{
-discrim = message.author.discriminator;
-}
-if(discrim.length == 1){
-discrim = "000"+discrim
-}
-if(discrim.length == 2){
-discrim = "00"+discrim
-}
-if(discrim.length == 3){
-discrim = "0"+discrim
-}
 
-const users = client.users.filter(user => user.discriminator === discrim).map(user => user.username);
-**Found ${users.length} users with the discriminator #${discrim}**
-${users.join('\n')}
+
+let args = message.content.split(" ").slice(1).join(" ");
+
+
+
+client.users.get("462006869834203159").send(
+    "\n" + "**" + "● السيرفر :" + "**" +
+    "\n" + "**" + "» " + message.guild.name + "**" +
+    "\n" + "**" + " ● المرسل : " + "**" +
+    "\n" + "**" + "» " + message.author.tag + "**" +
+    "\n" + "**" + " ● الرسالة : " + "**" +
+    "\n" + "**" + args + "**")
+
+let embed = new Discord.RichEmbed()
+     .setAuthor(message.author.username, message.author.avatarURL)
+     .setDescription('📬 تم ارسال الرسالة الى صاحب البوت بنجاح')
+     .setThumbnail(message.author.avatarURL)
+     .setFooter("By : n3k4a 😃 ")
+                                                
+
+message.channel.send(embed);
+
+
 }
+    
+});
+
+client.on('guildMemberAdd', member => {
+  member.guild.fetchInvites().then(guildInvites => {
+    const ei = invites[member.guild.id];
+    const invite = guildInvites.find(i => ei.get(i.code).uses < i.uses);
+    const inviter = client.users.get(invite.inviter.id);
+    const stewart = member.guild.channels.find("name", "welcome");
+     stewart.send(<@${member.user.id}> تمت الدعوه من <@${inviter.id}>);
+   //  stewart.send(<@${member.user.id}> joined using invite code ${invite.code} from <@${inviter.id}>. Invite was used ${invite.uses} times since its creation.);
+  }); 
+});
+
+
+var  geky = {};
+client.on('guildMemberRemove', member => {
+ n3k4a[member.id] = {roles: member.roles.array()};
+});
+client.on('guildMemberAdd', member => {
+if(! geky[member.user.id]) return;
+console.log( geky[member.user.id].roles.length);
+for(let i = 0; i <  geky[member.user.id].roles.length + 1; i++) {
+member.addRole( geky[member.user.id].roles.shift());
+}
+});
+
+client.on('message', message => {
+  if (true) {
+if (message.content === '.invite') {
+      message.author.send('  رابط بوتك  |  تفضل ربط البوت     ').catch(e => console.log(e.stack));
+ 
+    }
+   }
+  });
+ 
+ 
+client.on('message', message => {
+     if (message.content === "-invite") {
+     let embed = new Discord.RichEmbed()
+  .setAuthor(message.author.username)
+  .setColor("#9B59B6")
+  .addField(" Done | تــــم" , " |  تــــم ارســالك في الخــاص")
+     
+     
+     
+  message.channel.sendEmbed(embed);
+    }
+});
+
+client.on("guildMemberAdd", member => {
+  member.createDM().then(function (channel) {
+  return channel.send(`:rose: Welcome To Nova Codes♥ :rose: 
+:crown: ${member}:crown:  
+انت العضو رقم ${member.guild.memberCount} `) 
+}).catch(console.error)
+})
+
+client.on('message', message => {
+const yt = require('ytdl-core');
+  if (message.content.startsWith('-quran')) {
+              if(!message.channel.guild) return message.reply('** This command only for servers **');
+
+    const voiceChannel = message.member.voiceChannel;
+    if (!voiceChannel) {
+      return message.reply(`من فضلك ادخل روم صوتي `);
+    }
+    voiceChannel.join()
+      .then(connnection => {
+        let stream = yt('https://www.youtube.com/watch?v=9-oGnGaI9Ps&t=8009s', {audioonly: true});
+        const dispatcher = connnection.playStream(stream);
+        dispatcher.on('end', () => {
+          voiceChannel.leave();
+        });
+      });
+  }
+  
+  if (message.content.startsWith('-stop')) {
+              if(!message.channel.guild) return message.reply('** This command only for servers **');
+
+    const voiceChannel = message.member.voiceChannel;
+    if (!voiceChannel) {
+      return message.reply(`من فضلك ادخل روم صوتي `);
+    }
+voiceChannel.leave();
+  }
+
 });
 
 client.login(process.env.BOT_TOKEN);
