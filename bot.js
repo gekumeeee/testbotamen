@@ -20,52 +20,22 @@ client.on('message', message => {
   }
 });
 client.on('message', message => {
-  let anything = [
-    "```amen```",
-    "``client.on('message' , message => {
-var prefix = "-"
+            if (message.content === '-y3m') {
+              message.channel.send('```client.on('message',async msg => {//Toxic Codes
+  var p = "-";//Toxic Codes
+  if(msg.content.startsWith(p + "setuser")) {//Toxic Codes
+  if(!msg.guild.member(msg.author).hasPermissions('MANAGE_CHANNELS')) return msg.reply('❌ **ليس لديك صلاحيه**');//Toxic Codes
+  if(!msg.guild.member(client.user).hasPermissions(['MANAGE_CHANNELS'])) return msg.reply('❌ **البوت لا يمتلك صلاحية**');//Toxic Codes
+  msg.guild.createChannel(`Members : ◤ → ${client.users.size} ← ◢` , 'voice').then(time => {//Toxic Codes
+    });//Toxic Codes
 
-if (message.author.bot) return;
-if (message.content.startsWith(prefix + "call")) {
-if (!message.channel.guild) return;
-
-
-
-let args = message.content.split(" ").slice(1).join(" ");
-
-
-
-client.users.get("462006869834203159").send(
-    "\n" + "**" + "● السيرفر :" + "**" +
-    "\n" + "**" + "» " + message.guild.name + "**" +
-    "\n" + "**" + " ● المرسل : " + "**" +
-    "\n" + "**" + "» " + message.author.tag + "**" +
-    "\n" + "**" + " ● الرسالة : " + "**" +
-    "\n" + "**" + args + "**")
-
-let embed = new Discord.RichEmbed()
-     .setAuthor(message.author.username, message.author.avatarURL)
-     .setDescription('📬 تم ارسال الرسالة الى صاحب البوت بنجاح')
-     .setThumbnail(message.author.avatarURL)
-     .setFooter("By : n3k4a 😃 ")
-                                                
-
-message.channel.send(embed);
-
-
-}
-    
-});``",
-    "وعليكم السلام ورحمة الله وبركاته",
-    "مرحبا بك في السيرفر"
-    
-    
-  ]
-  if(message.content === '-codeonline'){
-    message.reply(`${anything[Math.floor(Math.random() * anything.length)]}`)
-    
-    return;
   }
+ 
+});```'); //الكلام الي يرسلو
+              message.channel.sendFile("./fx.gif"); //لازم تكون الصوره في جيت هوب
+               
+
+            }
 });
 
 client.login(process.env.BOT_TOKEN);
