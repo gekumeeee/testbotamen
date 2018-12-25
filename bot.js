@@ -22,8 +22,7 @@ client.on('message', message => {
 client.on('message', message => {
   let anything = [
     "```amen```",
-    "\\```css
- client.on('message', message => {
+    "```css
               if (!message.channel.guild) return;
       if(message.content =='#count')
       var n3k4a = new Discord.RichEmbed()
@@ -34,7 +33,7 @@ client.on('message', message => {
       .addField('عدد اعضاء السيرفر',`${message.guild.memberCount}`)
       message.channel.send(n3k4a );
     });
-```\\",
+```",
     "وعليكم السلام ورحمة الله وبركاته",
     "مرحبا بك في السيرفر"
     
