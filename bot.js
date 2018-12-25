@@ -125,81 +125,7 @@ client.on('message',async message => {//Toxic Code
   }
 });
 
-client.on("message", msg => {
-    if(msg.author.bot) return;
-if(msg.channel.type === 'dm') return;
 
-let p = "-";
-let msgarray = msg.content.split(" ");
-let cmd = msgarray[0];
-let args = msgarray.slice(1);
-
-
-
-if(cmd === `${p}kick`){
-
-
-    let kUser = msg.guild.member(msg.mentions.users.first() || msg.guild.members.get(args[0]));
-if(!kUser) return msg.channel.send("Can't find user!");
-let kreason = args.join(" ").slice(22);
-if(!msg.member.hasPermission("KICK_MEMBERS")) return msg.channel.send("No can do pal!");
-if(kUser.hasPermission("KICK_MEMBERS")) return msg.channel.send("That person can't be kicked");
-
-let kickembed = new Discord.RichEmbed()
-.setDescription("~kick~")
-.setColor("BLACK")
-.addField("Kiced User", `${kUser} with ID: ${kUser.id}`)
-.addField("Kicked By", `<@${msg.author.id}> with ID: ${msg.author.id}`)
-.addField("Kicked In", msg.channel)
-.addField("Time", msg.createdAt)
-.addField("Reason", kreason)
-
-let kickChannel = msg.guild.channels.find(`name`,"اسم الروم");
-if(!kickChannel) return msg.channel.send("Can't find `اسم الروم` channel.");
-
-msg.guild.member(kUser).kick(kreason);
-kickChannel.send(kickembed)
-    return;
-
-}
-
-});
-
-client.on("message", msg => {
-    if(msg.author.bot) return;
-if(msg.channel.type === 'dm') return;
-
-let p = "-";
-let msgarray = msg.content.split(" ");
-let cmd = msgarray[0];
-let args = msgarray.slice(1);
-
-if(cmd === `${p}ban`){
-    let bUser = msg.guild.member(msg.mentions.users.first() || msg.guild.members.get(args[0]));
-if(!bUser) return msg.channel.send("Can't find user!");
-let breason = args.join(" ").slice(22);
-if(!msg.member.hasPermission("BAN_MEMBERS")) return msg.channel.send("No can do pal!");
-if(bUser.hasPermission("BAN_MEMBERS")) return msg.channel.send("That person can't be banned");
-
-let banembed = new Discord.RichEmbed()
-.setDescription("~ban~")
-.setColor("BLACK")
-.addField("banned User", `${bUser} with ID: ${bUser.id}`)
-.addField("banned By", `<@${msg.author.id}> with ID: ${msg.author.id}`)
-.addField("banned In", msg.channel)
-.addField("Time", msg.createdAt)
-.addField("Reason", breason)
-
-let banChannel = msg.guild.channels.find("name","اسم الروم");
-if(!banChannel) return msg.channel.send("Can't find `اسم الروم` channel.");
-
-msg.guild.member(bUser).ban(breason);
-banChannel.send(banembed)
-    return;
-}
-
-
-});
 
 
 client.on('message' , message => {
@@ -237,48 +163,92 @@ message.channel.send(embed);
     
 });
 
-var  geky = {};
-client.on('guildMemberRemove', member => {
- n3k4a[member.id] = {roles: member.roles.array()};
-});
-client.on('guildMemberAdd', member => {
-if(! geky[member.user.id]) return;
-console.log( geky[member.user.id].roles.length);
-for(let i = 0; i <  geky[member.user.id].roles.length + 1; i++) {
-member.addRole( geky[member.user.id].roles.shift());
+
+client.on('message', function(message) {
+    if (message.content === "-report") {
+        let messageArgs = message.content.split(" ").slice(1).join(" ");
+        let messageReason = message.content.split(" ").slice(2).join(" ");
+        if(!messageReason) return message.reply("**# Specify a reason!**");
+    let mUser = message.mentions.users.first();
+    if(!mUser) return message.channel.send("Couldn't find user.");
+    let Rembed = new Discord.RichEmbed()
+    .setTitle("`New Report!`")
+    .setThumbnail(message.author.avatarURL)
+    .addField("**# - Reported User:**",mUser,true)
+    .addField("**# - Reported User ID:**",mUser.id,true)
+    .addField("**# - Reason:**",messageReason,true)
+    .addField("**# - Channel:**",message.channel,true)
+    .addField("**# - Time:**",message.createdAt,true)
+    .setFooter("لو ان الابلاغ فيه مزح راح يتعرض صاحب الابلاغ لقوبات")
+message.channel.send(Rembed)
+message.channel.send("__Are you sure you want to send this to the Server owner??__").then(msg => {
+    msg.react("?")
+    msg.react("?")
+.then(() => msg.react('?'))
+.then(() =>msg.react('?'))
+let reaction1Filter = (reaction, user) => reaction.emoji.name === '?' && user.id === message.author.id;
+let reaction2Filter = (reaction, user) => reaction.emoji.name === '?' && user.id === message.author.id;
+
+let reaction1 = msg.createReactionCollector(reaction1Filter, { time: 12000 });
+let reaction2 = msg.createReactionCollector(reaction2Filter, { time: 12000 });
+reaction1.on("collect", r => {
+    message.guild.owner.send(Rembed)
+    message.reply("**# - Done! ??**");
+})
+reaction2.on("collect", r => {
+    message.reply("**# - Canceled!**");
+})
+})
 }
 });
 
-client.on('message', message => {
-  if (true) {
-if (message.content === '.invite') {
-      message.author.send('https://discordapp.com/api/oauth2/authorize?client_id=516173111817797664&permissions=8&scope=bot').catch(e => console.log(e.stack));
- 
-    }
-   }
-  });
- 
- 
-client.on('message', message => {
-     if (message.content === "-invite") {
-     let embed = new Discord.RichEmbed()
-  .setAuthor(message.author.username)
-  .setColor("#9B59B6")
-  .addField(" Done | تــــم" , " |  تــــم ارســالك في الخــاص")
-     
-     
-     
-  message.channel.sendEmbed(embed);
-    }
+client.on("ready", async  => {
+setInterval(function(){
+client.channels.find('id', '527077510161104917').setName("♥");
+client.channels.find('id', '527077510161104917').setName("♥W");
+client.channels.find('id', '527077510161104917').setName("♥We");
+client.channels.find('id', '527077510161104917').setName("♥Wel");
+client.channels.find('id', '527077510161104917').setName("♥Welc");
+client.channels.find('id', '527077510161104917').setName("♥Welco");
+client.channels.find('id', '527077510161104917').setName("♥Welcom");
+client.channels.find('id', '527077510161104917').setName("♥Welcome ");
+client.channels.find('id', '527077510161104917').setName("♥Welcome T");
+client.channels.find('id', '527077510161104917').setName("♥Welcome To");
+client.channels.find('id', '527077510161104917').setName("♥Welcome To C");
+client.channels.find('id', '527077510161104917').setName("♥Welcome To Co");
+client.channels.find('id', '527077510161104917').setName("♥Welcome To Cod");
+client.channels.find('id', '527077510161104917').setName("♥Welcome To Code");
+client.channels.find('id', '527077510161104917').setName("♥Welcome To Codes");
+client.channels.find('id', '527077510161104917').setName("♥Welcome To Codes♥");
+}, 3000);
 });
 
-client.on("guildMemberAdd", member => {
-  member.createDM().then(function (channel) {
-  return channel.send(`:rose: Welcome To Nova Codes♥ :rose: 
-:crown: ${member}:crown:  
-انت العضو رقم ${member.guild.memberCount} `) 
-}).catch(console.error)
-})
+client.on("message", message => {
+   let men = message.mentions.users.first();
+    if (message.content === "-vk") {
+     try {
+     if(!men) {
+       message.channel.send("**Mention A Person**");
+       return;
+     }
+     if(!message.guild.member(men).voiceChannel) return message.channel.send("The Person Not In A VoiceChannel");
+     if(!message.member.hasPermission("MOVE_MEMBERS")) return message.channel.send("You Dont Have Permissions To Kick This Person")
+     if(!message.guild.me.hasPermission("MOVE_MEMBERS")) return message.channel.send("The Bot Not Have Permissions To Kick This Person");
+        if(!message.guild.me.hasPermission("MANAGE_CHANNELS")) return message.channel.send("I Dont Have Permissions To Create VoiceChannel")
+ 
+     message.guild.createChannel("vKick", "voice").then(c => {
+       message.guild.member(men).setVoiceChannel(c.id)
+     setTimeout(() => {
+       c.delete()
+     }, 100)
+     });
+     message.channel.send(`**Has Been Kicked From The VoiceChannel \`\`${men.username}\`\`**`)
+ } catch (e) {
+   message.channel.send("I Cant Do This For Permissions Or Something :/");
+ }
+   }
+ });
+
 
 
 client.login(process.env.BOT_TOKEN);
