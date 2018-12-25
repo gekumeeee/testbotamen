@@ -9,7 +9,7 @@ const botToken = ""; /*You'll have to set this yourself; read more
 //Load up the bot...
 const Discord = require('discord.js');
 const bot = new Discord.Client();
-
+bot.login(botToken);
  
 //If there isn't a reaction for every role, scold the user!
 if (roles.length !== reactions.length) throw "Roles list and reactions list are not the same length!";
@@ -65,5 +65,3 @@ bot.on('raw', event => {
  
     }  
 });
-// THIS  MUST  BE  THIS  WAY
-client.login(process.env.BOT_TOKEN);
