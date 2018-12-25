@@ -21,7 +21,7 @@ client.on('message', message => {
 });
 client.on('message', message => {
   let anything = [
-    "   ```
+    "احا```
 client.on('message', message => {
               if (!message.channel.guild) return;
       if(message.content =='#count')
@@ -33,7 +33,7 @@ client.on('message', message => {
       .addField('عدد اعضاء السيرفر',`${message.guild.memberCount}`)
       message.channel.send(geky );
     });
-```   ",
+```احا",
     "ياهلا والله",
     "وعليكم السلام ورحمة الله وبركاته",
     "مرحبا بك في السيرفر"
