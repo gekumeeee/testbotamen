@@ -5,7 +5,7 @@ const client = new Discord.Client();
 
 // playing
 client.on('ready', () => {                           
-client.user.setGame(`_help`,'https://www.twitch.tv/tarikrs');                                                                                                                                                                                                                                                                                                                                                                                                                             client.user.setGame(`-help | On 20 Servers`,'https://www.twitch.tv/v5bz');
+client.user.setGame(`Nova Codes ♥♥`,'https://www.twitch.tv/tarikrs');                                                                                                                                                                                                                                                                                                                                                                                                                             client.user.setGame(`-help | On 20 Servers`,'https://www.twitch.tv/v5bz');
 });          
 
 client.on('message', message => {
@@ -17,11 +17,11 @@ client.on('message', message => {
     
     
   ]
-  if(message.content === 'السلام عليكم'){
+  if(message.content === '-codenew'){
     message.reply(`${anything[Math.floor(Math.random() * anything.length)]}`)
     
     return;
   }
 });
 
-client.login('NTI3MDEyODk3MjAxNTg2MTkx.DwNizw.NfSNkQzlaKZPXQZWQ1V1oVuQTDI'); 
+client.login(process.env.BOT_TOKEN);
