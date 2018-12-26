@@ -25,7 +25,7 @@ client.on('message', message => {
 
 client.on("message", message => {
   if (message.content.startsWith(prefix + "help")) {
-	    const embed = new Discord.RichEmbed()
+  let embed = new Discord.RichEmbed()
       .setColor("RANDOM")
       .setDescription(`
 .addField(-dc ⇏ Delete all channels)
