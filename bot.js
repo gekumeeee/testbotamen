@@ -23,7 +23,8 @@ client.on('message', message => {
   }
 });
 
-client.on("message", message => {
+client.on('message', message => {
+              var prefix = "-" ;
   if (message.content.startsWith(prefix + "help")) {
   let embed = new Discord.RichEmbed()
       .setColor("RANDOM")
