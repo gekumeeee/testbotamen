@@ -555,4 +555,5 @@ client.on('message', msg => {
     msg.reply('pong')
   }
 })
+});
 client.login(process.env.BOT_TOKEN);
