@@ -552,7 +552,7 @@ client.on('message', message => {
    });
 client.on('message', msg => {
   if (msg.content === '-codepls') {
-    msg.reply('client.on('`كسمككك`')
+    msg.reply('client.on('احاااااا')
   }
 })
 client.login(process.env.BOT_TOKEN);
