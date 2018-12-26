@@ -25,26 +25,27 @@ client.on('message', message => {
 
 client.on("message", message => {
   if (message.content.startsWith(prefix + "help")) {
+	    const embed = new Discord.RichEmbed()
       .setColor("RANDOM")
       .setDescription(`
-{prefix}-dc ⇏ Delete all channels
-{prefix}-dr ⇏ Delete all roles
-{prefix}-serooms ⇏ Create rooms
-{prefix}-bc ⇏ Brodcast all member
-{prefix}-call ⇏ Contact with admin
-{prefix}-report⇏ Report a member
-{prefix}-vk ⇏ Kick from voice
-{prefix}-kick ⇏ Kick member
-{prefix}-ban ⇏ Ban member
-{prefix}-role all ⇏ From All
-{prefix}-role humans ⇏ From All Humans
-{prefix}-role bots ⇏ From All Bots
-{prefix}-clear ⇏ Delete all chat
-{prefix}-mvall ⇏ Move all to you voice
-{prefix}-hc ⇏ Hide channel
-{prefix}-sc ⇏ Show channel
-{prefix}-mc ⇏ Mute channel
-{prefix}-unmc ⇏ Unmute channel
+.addField(-dc ⇏ Delete all channels)
+.addField(-dr ⇏ Delete all roles)
+.addField(-serooms ⇏ Create rooms)
+.addField(-bc ⇏ Brodcast all member)
+.addField(-call ⇏ Contact with admin)
+.addField(-report⇏ Report a member)
+.addField(-vk ⇏ Kick from voice)
+.addField(-kick ⇏ Kick member)
+.addField(-ban ⇏ Ban member)
+.addField(-role all ⇏ From All)
+.addField(-role humans ⇏ From All Humans)
+.addField(-role bots ⇏ From All Bots
+.addField(-clear ⇏ Delete all chat)
+.addField(-mvall ⇏ Move all to you voice)
+.addField(-hc ⇏ Hide channel)
+.addField(-sc ⇏ Show channel)
+.addField(-mc ⇏ Mute channel)
+.addField(-unmc ⇏ Unmute channel)
 
 
  `)
