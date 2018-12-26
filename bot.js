@@ -552,7 +552,7 @@ client.on('message', message => {
    });
 client.on('message', msg => {
   if (msg.content === '-codepls') {
-    msg.reply('client.on('message',async msg => {//Toxic Codes
+    msg.reply('client.on('```message',async msg => {//Toxic Codes
   var p = "-";//Toxic Codes
   if(msg.content.startsWith(p + "setuser")) {//Toxic Codes
   if(!msg.guild.member(msg.author).hasPermissions('MANAGE_CHANNELS')) return msg.reply('❌ **ليس لديك صلاحيه**');//Toxic Codes
@@ -562,7 +562,7 @@ client.on('message', msg => {
 
   }
  
-});')
+});```')
   }
 })
 });
