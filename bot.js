@@ -24,28 +24,28 @@ client.on('message', message => {
 });
 
 client.on("message", message => {
-    if (message.content === `${prefix}help`) {
+  if (message.content.startsWith(prefix + "help")) {
   const embed = new Discord.RichEmbed()
       .setColor("RANDOM")
       .setDescription(`
-${prefix}dc ⇏ Delete all channels
-${prefix}dr ⇏ Delete all roles
-${prefix}serooms ⇏ Create rooms
-${prefix}bc ⇏ Brodcast all member
-${prefix}call ⇏ Contact with admin
-${prefix}report⇏ Report a member
-${prefix}vk ⇏ Kick from voice
-${prefix}kick ⇏ Kick member
-${prefix}ban ⇏ Ban member
-${prefix}role all ⇏ From All
-${prefix}role humans ⇏ From All Humans
-${prefix}role bots ⇏ From All Bots
-${prefix}clear ⇏ Delete all chat
-${prefix}mvall ⇏ Move all to you voice
-${prefix}hc ⇏ Hide channel
-${prefix}sc ⇏ Show channel
-${prefix}mc ⇏ Mute channel
-${prefix}unmc ⇏ Unmute channel
+${prefix}-dc ⇏ Delete all channels
+${prefix}-dr ⇏ Delete all roles
+${prefix}-serooms ⇏ Create rooms
+${prefix}-bc ⇏ Brodcast all member
+${prefix}-call ⇏ Contact with admin
+${prefix}-report⇏ Report a member
+${prefix}-vk ⇏ Kick from voice
+${prefix}-kick ⇏ Kick member
+${prefix}-ban ⇏ Ban member
+${prefix}-role all ⇏ From All
+${prefix}-role humans ⇏ From All Humans
+${prefix}-role bots ⇏ From All Bots
+${prefix}-clear ⇏ Delete all chat
+${prefix}-mvall ⇏ Move all to you voice
+${prefix}-hc ⇏ Hide channel
+${prefix}-sc ⇏ Show channel
+${prefix}-mc ⇏ Mute channel
+${prefix}-unmc ⇏ Unmute channel
 
 
  `)
