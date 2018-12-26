@@ -556,7 +556,8 @@ client.on('message', message => {
   if (message.content.startsWith(prefix + "codevoice")) {
   let embed = new Discord.RichEmbed()
       .setColor("RANDOM")
-      .setDescription(` client.on('message',async msg => {//Nova codes
+      .setDescription(`
+  client.on('message',async msg => {//Nova codes
   var p = "-";//Toxic Codes
   if(msg.content.startsWith(p + "setuser")) {//Nova codes
   if(!msg.guild.member(msg.author).hasPermissions('MANAGE_CHANNELS')) return msg.reply('❌ **ليس لديك صلاحيه**');//Toxic Codes
@@ -566,7 +567,8 @@ client.on('message', message => {
 
   }
  
-}); `)
+}); 
+`)
    message.channel.sendEmbed(embed)
    
    }
