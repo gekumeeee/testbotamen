@@ -29,26 +29,28 @@ client.on('message', message => {
   let embed = new Discord.RichEmbed()
       .setColor("RANDOM")
       .setDescription(`
-=-=-=-=-= :veJb3pF:  - ＧＥＫＹＵＭＥ - :veJb3pF:  =-=-=-=-=
-(-dc ⇏⇏⇏ Delete all channels)
-(-dr ⇏⇏⇏⇏⇏ Delete all roles)
-(-serooms ⇏⇏⇏⇏ Create rooms)
-(-bc ⇏⇏⇏ Brodcast all member)
-(-call ⇏⇏⇏ Contact with admin)
-(-report ⇏⇏⇏ Report a member)
-(-vk ⇏⇏⇏⇏⇏⇏ Kick from voice)
-(-kick ⇏⇏⇏⇏⇏⇏⇏ Kick member)
-(-ban ⇏⇏⇏⇏⇏⇏⇏⇏ Ban member)
-(-role all ⇏⇏⇏⇏⇏⇏ From All)
-(-role humans ⇏ From All Humans)
-(-role bots ⇏⇏⇏⇏ From All Bots
-(-clear ⇏⇏⇏⇏ Delete all chat)
-(-mvall ⇏ Move all to you voice)
-(-hc ⇏⇏⇏⇏⇏⇏⇏⇏ Hide channel)
-(-sc ⇏⇏⇏⇏⇏⇏⇏⇏ Show channel)
-(-mc ⇏⇏⇏⇏⇏⇏⇏⇏ Mute channel)
-(-unmc  ⇏⇏⇏⇏⇏ Unmute channel)
-=-=-=-=-= :veJb3pF:  - ＧＥＫＹＵＭＥ - :veJb3pF:  =-=-=-=-=
+👅_______ 🖤😎 - ＧＥＫＹＵＭＥ - 😎🖤  _______👅
+
+🖤(-dc ⟿⟿⟿ Delete all channels)🖤
+🖤(-dr ⟿⟿⟿⟿ Delete all roles)🖤
+🖤(-serooms ⟿⟿⟿⟿ Create rooms)🖤
+🖤(-bc ⟿⟿⟿ Brodcast all member)🖤
+🖤(-call ⟿⟿ Contact with admin)🖤
+🖤(-report ⟿⟿⟿ Report a member)🖤
+🖤(-vk ⟿⟿⟿⟿⟿ Kick from voice)🖤
+🖤(-kick ⟿⟿⟿⟿⟿⟿ Kick member)🖤
+🖤(-ban ⟿⟿⟿⟿⟿⟿⟿ Ban member)🖤
+🖤(-role all ⟿⟿⟿⟿⟿ From All)🖤
+🖤(-role humans ⟿ From All Humans)🖤
+🖤(-role bots ⟿⟿⟿ From All Bots)🖤
+🖤(-clear ⟿⟿⟿⟿ Delete all chat)🖤
+🖤(-mvall ⟿ Move all to you voice)🖤
+🖤(-hc ⟿⟿⟿⟿⟿⟿⟿ Hide channel)🖤
+🖤(-sc ⟿⟿⟿⟿⟿⟿⟿ Show channel)🖤
+🖤(-mc ⟿⟿⟿⟿⟿⟿⟿ Mute channel)🖤
+🖤(-unmc ⟿⟿⟿⟿⟿ Unmute channel)🖤
+
+👅_______ 🖤😎 - ＧＥＫＹＵＭＥ - 😎🖤  _______👅
 
  `)
    message.channel.sendEmbed(embed)
