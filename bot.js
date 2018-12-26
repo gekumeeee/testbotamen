@@ -607,6 +607,8 @@ client.user.setAvatar(argresult);
 if (message.content.startsWith(adminprefix + 'setT')) {
   client.user.setGame(argresult, "https://www.twitch.tv/N O V A A♥");
     message.channel.sendMessage(تم تغيير تويتش البوت إلى  ${argresult}`)
-
+  
+}
 });
+	
 client.login(process.env.BOT_TOKEN);
