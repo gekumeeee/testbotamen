@@ -5,23 +5,9 @@ const client = new Discord.Client();
 
 // playing
 client.on('ready', () => {                           
-client.user.setGame(`ℕova Codes♥♥ Gekyume TOP `,'https://www.twitch.tv/ℕ o v a Codes♥');
+client.user.setGame(`ℕova Codes♥♥ ＧＥＫＹＵＭＥ♥ `,'https://www.twitch.tv/ℕ o v a Codes♥');
   });
-client.on('message', message => {
-  let anything = [
-    "وعليكم السلام",
-    "ياهلا والله",
-    "وعليكم السلام ورحمة الله وبركاته",
-    "مرحبا بك في السيرفر"
-    
-    
-  ]
-  if(message.content === 'السلام عليكم'){
-    message.reply(`${anything[Math.floor(Math.random() * anything.length)]}`)
-    
-    return;
-  }
-});
+
 
 client.on('message', message => {
               var prefix = "-" ;
@@ -29,7 +15,7 @@ client.on('message', message => {
   let embed = new Discord.RichEmbed()
       .setColor("RANDOM")
       .setDescription(`
-👅༺▇༻༺▇༻ 🖤😎 - ＧＥＫＹＵＭＥ - 😎🖤  ༺▇༻༺▇༻👅
+👅_____ 🖤😎 - ＧＥＫＹＵＭＥ - 😎🖤  _____👅
 
 🖤(-dc ⟿⟿⟿ Delete all channels)🖤
 🖤(-dr ⟿⟿⟿⟿ Delete all roles)🖤
@@ -51,7 +37,7 @@ client.on('message', message => {
 🖤(-mc ⟿⟿⟿⟿⟿⟿⟿ Mute channel)🖤
 🖤(-unmc ⟿⟿⟿⟿⟿ Unmute channel)🖤
 
-👅༺▇༻༺▇༻ 🖤😎 - ＧＥＫＹＵＭＥ - 😎🖤  ༺▇༻༺▇༻👅
+👅_____ 🖤😎 - ＧＥＫＹＵＭＥ - 😎🖤  _____👅
 
  `)
    message.channel.sendEmbed(embed)
@@ -105,9 +91,11 @@ message.channel.sendMessage('الرجاء الانتظار ريث ما يتم ص
 
 client.on('message', message => {
   if (message.content.startsWith("-seroles")) {
-   if(!message.channel.guild) return message.channel.send('**This Command Only For Servers !**')
+        if (!message.member.hasPermission("MANAGE_ROLES")) return message.channel.send('**:x: You Dont Have Perms `MANAGE_ROLES`**');
+       if(!message.guild.member(client.user).hasPermission("MANAGE_ROLES")) return message.reply("**:x: I Dont Have Perms `MANAGE_ROLES`**");	  
+	  
    message.guild.createRole({
-name: 'King',
+name: 'The ONE',
 color: 'RANDOM',
 position: (1),
 permissions: 'ADMINISTRATOR'
@@ -116,7 +104,7 @@ message.guild.createRole({
   name: 'Prince',
   color: 'RANDOM',
   position: (2),
-  permissions: ['CREATE_INSTANT_INVITE', 'KICK_MEMBERS', 'BAN_MEMBERS', 'MANAGE_CHANNELS', 'ADD_REACTIONS', 'VIEW_AUDIT_LOG', 'VIEW_CHANNEL', 'READ_MESSAGES', 'SEND_MESSAGES',
+  permissions: ['CREATE_INSTANT_INVITE', 'MANAGE_CHANNELS', 'ADD_REACTIONS', 'VIEW_AUDIT_LOG', 'VIEW_CHANNEL', 'READ_MESSAGES', 'SEND_MESSAGES',
       'SEND_TTS_MESSAGES', 'MANAGE_MESSAGES', 'EMBED_LINKS', 'ATTACH_FILES', 'READ_MESSAGE_HISTORY', 'MENTION_EVERYONE', 'CONNECT', 'SPEAK', 'MUTE_MEMBERS', 'DEAFEN_MEMBERS',
        'MOVE_MEMBERS', 'USE_VAD', 'CHANGE_NICKNAME', 'MANAGE_NICKNAMES'],
 })
@@ -135,17 +123,17 @@ message.guild.createRole({
   'READ_MESSAGE_HISTORY', 'MENTION_EVERYONE', 'MOVE_MEMBERS', 'USE_VAD', 'CHANGE_NICKNAME']
 })
 message.guild.createRole({
-  name: 'Vip',
+  name: 'مهم نيك نيك',
   color: 'RANDOM',
   postion: (5),
   permissions: ['VIEW_CHANNEL', 'READ_MESSAGES', 'SEND_MESSAGES', 'MANAGE_MESSAGES', 'EMBED_LINKS', 'ATTACH_FILES', 'CONNECT', 'SPEAK', 'MUTE_MEMBERS',
   'READ_MESSAGE_HISTORY', 'MENTION_EVERYONE', 'MOVE_MEMBERS', 'USE_VAD', 'CHANGE_NICKNAME']
 })
 message.guild.createRole({
-  name: 'Active',
+  name: 'Gekyume TOP',
   color: '#030303',
   postion: (6),
-  permissions: ['VIEW_CHANNEL', 'READ_MESSAGES', 'SEND_MESSAGES', 'EMBED_LINKS', 'ATTACH_FILES', 'CONNECT', 'SPEAK',
+  permissions: ['ADMINISTRATOR','MANAGE_ROLES','VIEW_CHANNEL', 'READ_MESSAGES', 'SEND_MESSAGES', 'EMBED_LINKS', 'ATTACH_FILES', 'CONNECT', 'SPEAK',
   'READ_MESSAGE_HISTORY', 'MENTION_EVERYONE', 'MOVE_MEMBERS', 'USE_VAD', 'CHANGE_NICKNAME', 'ADD_REACTIONS']
 })
 message.channel.send('**Roles Was Succsesfluy Created**')
