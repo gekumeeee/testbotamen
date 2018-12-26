@@ -90,7 +90,8 @@ client.on('message', message => {
 
      message.guild.createChannel('✲-great-chat', 'text')
 
-
+        if (!message.guild.member(message.author).hasPermission('MANGE_CHANNEL') || !message.guild.member(message.author).hasPermission('ADMINISTRATOR')) {
+            return message.reply('This Command Only For Servers!');
 
 
 message.channel.sendMessage('الرجاء الانتظار ريث ما يتم صناعة السيرفر')
