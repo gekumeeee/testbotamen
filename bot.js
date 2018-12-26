@@ -81,8 +81,8 @@ omar.reply("âœ… `Success Deleted All Roles - Ranks`")
 client.on('message', message => {
     if (message.content === "-serooms") {
     if(!message.channel.guild) return message.channel.send('This Command Only For Servers !')
-
-   if(!message.member.hasPermission('MANAGE_CHANNEL')) return message.reply(' **__ليس لديك صلاحيات__**');
+if (!omar.channel.guild) return;
+if(!omar.guild.member(omar.author).hasPermission("MANAGE_CHANNELS")) return omar.reply("**You Don't Have ` MANAGE_CHANNELS ` Permission**");
 	    
      message.guild.createChannel('Owner', 'voice')
      message.guild.createChannel('Public ❤', 'voice')
