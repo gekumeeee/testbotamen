@@ -29,11 +29,12 @@ client.on('message', message => {
   let embed = new Discord.RichEmbed()
       .setColor("RANDOM")
       .setDescription(`
-👅_______ 🖤😎 - ＧＥＫＹＵＭＥ - 😎🖤  _______👅
+👅༺▇༻༺▇༻ 🖤😎 - ＧＥＫＹＵＭＥ - 😎🖤  ༺▇༻༺▇༻👅
 
 🖤(-dc ⟿⟿⟿ Delete all channels)🖤
 🖤(-dr ⟿⟿⟿⟿ Delete all roles)🖤
 🖤(-serooms ⟿⟿⟿⟿ Create rooms)🖤
+🖤(-seroles ⟿⟿⟿⟿ Create roles)🖤
 🖤(-bc ⟿⟿⟿ Brodcast all member)🖤
 🖤(-call ⟿⟿ Contact with admin)🖤
 🖤(-report ⟿⟿⟿ Report a member)🖤
@@ -50,7 +51,7 @@ client.on('message', message => {
 🖤(-mc ⟿⟿⟿⟿⟿⟿⟿ Mute channel)🖤
 🖤(-unmc ⟿⟿⟿⟿⟿ Unmute channel)🖤
 
-👅_______ 🖤😎 - ＧＥＫＹＵＭＥ - 😎🖤  _______👅
+👅༺▇༻༺▇༻ 🖤😎 - ＧＥＫＹＵＭＥ - 😎🖤  ༺▇༻༺▇༻👅
 
  `)
    message.channel.sendEmbed(embed)
@@ -87,6 +88,8 @@ client.on('message', message => {
        if(!message.guild.member(client.user).hasPermission("MANAGE_CHANNELS")) return message.reply("**:x: I Dont Have Perms `MOVE_MEMBERS`**");
 	    
 
+	    
+	    
 	message.guild.createChannel('Owner', 'voice')
      message.guild.createChannel('Public ❤', 'voice')
      message.guild.createChannel('Public ✿', 'voice')
@@ -99,6 +102,60 @@ client.on('message', message => {
 message.channel.sendMessage('الرجاء الانتظار ريث ما يتم صناعة السيرفر')
 }
 });
+
+client.on('message', message => {
+  if (message.content.startsWith("-seroles")) {
+   if(!message.channel.guild) return message.channel.send('**This Command Only For Servers !**')
+   message.guild.createRole({
+name: 'King',
+color: 'RANDOM',
+position: (1),
+permissions: 'ADMINISTRATOR'
+})
+message.guild.createRole({
+  name: 'Prince',
+  color: 'RANDOM',
+  position: (2),
+  permissions: ['CREATE_INSTANT_INVITE', 'KICK_MEMBERS', 'BAN_MEMBERS', 'MANAGE_CHANNELS', 'ADD_REACTIONS', 'VIEW_AUDIT_LOG', 'VIEW_CHANNEL', 'READ_MESSAGES', 'SEND_MESSAGES',
+      'SEND_TTS_MESSAGES', 'MANAGE_MESSAGES', 'EMBED_LINKS', 'ATTACH_FILES', 'READ_MESSAGE_HISTORY', 'MENTION_EVERYONE', 'CONNECT', 'SPEAK', 'MUTE_MEMBERS', 'DEAFEN_MEMBERS',
+       'MOVE_MEMBERS', 'USE_VAD', 'CHANGE_NICKNAME', 'MANAGE_NICKNAMES'],
+})
+message.guild.createRole({
+  name: 'Commander',
+  color: 'RANDOM',
+   position: (3),
+  permissions: ['CREATE_INSTANT_INVITE', 'KICK_MEMBERS', 'ADD_REACTIONS', 'VIEW_CHANNEL', 'READ_MESSAGES', 'SEND_MESSAGES', 'MANAGE_MESSAGES', 'EMBED_LINKS', 'ATTACH_FILES', 'CONNECT', 'SPEAK', 'MUTE_MEMBERS', 'DEAFEN_MEMBERS',
+  'READ_MESSAGE_HISTORY', 'MENTION_EVERYONE', 'MOVE_MEMBERS', 'USE_VAD', 'CHANGE_NICKNAME', 'MANAGE_NICKNAMES']
+})
+message.guild.createRole({
+  name: 'Admin',
+  color: 'RANDOM',
+  postion: (4),
+  permissions: ['VIEW_CHANNEL', 'READ_MESSAGES', 'SEND_MESSAGES', 'MANAGE_MESSAGES', 'EMBED_LINKS', 'ATTACH_FILES', 'CONNECT', 'SPEAK', 'MUTE_MEMBERS', 'DEAFEN_MEMBERS',
+  'READ_MESSAGE_HISTORY', 'MENTION_EVERYONE', 'MOVE_MEMBERS', 'USE_VAD', 'CHANGE_NICKNAME']
+})
+message.guild.createRole({
+  name: 'Vip',
+  color: 'RANDOM',
+  postion: (5),
+  permissions: ['VIEW_CHANNEL', 'READ_MESSAGES', 'SEND_MESSAGES', 'MANAGE_MESSAGES', 'EMBED_LINKS', 'ATTACH_FILES', 'CONNECT', 'SPEAK', 'MUTE_MEMBERS',
+  'READ_MESSAGE_HISTORY', 'MENTION_EVERYONE', 'MOVE_MEMBERS', 'USE_VAD', 'CHANGE_NICKNAME']
+})
+message.guild.createRole({
+  name: 'Active',
+  color: '#030303',
+  postion: (6),
+  permissions: ['VIEW_CHANNEL', 'READ_MESSAGES', 'SEND_MESSAGES', 'EMBED_LINKS', 'ATTACH_FILES', 'CONNECT', 'SPEAK',
+  'READ_MESSAGE_HISTORY', 'MENTION_EVERYONE', 'MOVE_MEMBERS', 'USE_VAD', 'CHANGE_NICKNAME', 'ADD_REACTIONS']
+})
+message.channel.send('**Roles Was Succsesfluy Created**')
+.catch(console.error);
+  }
+});
+
+
+
+
 
 client.on('message' , message => {
     if (message.content === "-shutdown") {
