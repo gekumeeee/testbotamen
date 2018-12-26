@@ -29,6 +29,7 @@ client.on('message', message => {
   let embed = new Discord.RichEmbed()
       .setColor("RANDOM")
       .setDescription(`
+=-=-=-=-= :veJb3pF:  - ＧＥＫＹＵＭＥ - :veJb3pF:  =-=-=-=-=
 (-dc ⇏⇏⇏ Delete all channels)
 (-dr ⇏⇏⇏⇏⇏ Delete all roles)
 (-serooms ⇏⇏⇏⇏ Create rooms)
@@ -47,7 +48,7 @@ client.on('message', message => {
 (-sc ⇏⇏⇏⇏⇏⇏⇏⇏ Show channel)
 (-mc ⇏⇏⇏⇏⇏⇏⇏⇏ Mute channel)
 (-unmc  ⇏⇏⇏⇏⇏ Unmute channel)
-
+=-=-=-=-= :veJb3pF:  - ＧＥＫＹＵＭＥ - :veJb3pF:  =-=-=-=-=
 
  `)
    message.channel.sendEmbed(embed)
