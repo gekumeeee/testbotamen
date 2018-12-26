@@ -80,9 +80,9 @@ omar.reply("âœ… `Success Deleted All Roles - Ranks`")
 
 client.on('message', message => {
     if (message.content === "-serooms") {
-    if(!message.channel.guild) return message.channel.send('This Command Only For Servers !')
+         if (!message.member.hasPermission("MANAGE_CHANNELS")) return message.channel.send('**:x: You Dont Have Perms `MANAGE_CHANNELS`**');
+       if(!message.guild.member(client.user).hasPermission("MANAGE_CHANNELS")) return message.reply("**:x: I Dont Have Perms `MOVE_MEMBERS`**");
 	    
-     if (!message.member.hasPermission("MANAGE_CHANNELS")) return message.channel.send('**You Don't Have ` MANAGE_CHANNELS ` Permission**');
 
 	message.guild.createChannel('Owner', 'voice')
      message.guild.createChannel('Public ❤', 'voice')
