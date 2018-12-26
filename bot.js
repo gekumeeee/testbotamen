@@ -82,6 +82,8 @@ client.on('message', message => {
     if (message.content === "-serooms") {
     if(!message.channel.guild) return message.channel.send('This Command Only For Servers !')
 
+   if(!message.member.hasPermission('MANAGE_CHANNEL')) return message.reply(' **__ليس لديك صلاحيات__**');
+	    
      message.guild.createChannel('Owner', 'voice')
      message.guild.createChannel('Public ❤', 'voice')
      message.guild.createChannel('Public ✿', 'voice')
@@ -89,9 +91,6 @@ client.on('message', message => {
      message.guild.createChannel('✲-bot', 'text')
 
      message.guild.createChannel('✲-great-chat', 'text')
-
-        if (!message.guild.member(message.author).hasPermission('MANGE_CHANNEL') || !message.guild.member(message.author).hasPermission('ADMINISTRATOR')) {
-            return message.reply('This Command Only For Servers!');
 
 
 message.channel.sendMessage('الرجاء الانتظار ريث ما يتم صناعة السيرفر')
