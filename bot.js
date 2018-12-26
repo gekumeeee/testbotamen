@@ -5,7 +5,7 @@ const client = new Discord.Client();
 
 // playing
 client.on('ready', () => {                           
-client.user.setGame(`ℕova Codes♥`,'https://www.twitch.tv/ℕ o v a Codes♥');
+client.user.setGame(`ℕova Codes♥♥ Gekyume TOP `,'https://www.twitch.tv/ℕ o v a Codes♥');
   });
 client.on('message', message => {
   let anything = [
@@ -23,36 +23,37 @@ client.on('message', message => {
   }
 });
 
-client.on('message', message => {
-              var prefix = "-" ;
-            if (message.content.startsWith(prefix + "help")) {
-     let embed = new Discord.RichEmbed()
-.setThumbnail(message.author.avatarURL)   
-.addField('     **─════════════ ⦁{✯Administrator✯}⦁ ════════════─** ' ,' **   ** ')
-.addField('     **→ delete all channels ←** ' ,' **-dc** ')
-.addField('     **→ delete all roles ←**  ' ,' **-dr** ')
-.addField('     **→ create rooms ←**  ' ,' **-serooms** ')
-.addField('     **→ brodcast all member ←** ' , '**-bc**') 
-.addField('     **→ contact with admin ←** ' , '**-call**') 
-.addField('     **→ report a member ←** ' ,' ** -report**')
-.addField('     **→ kick from voice ←** ' , '**-vk**')
-.addField('     **→ kick member ← ** ' ,' **-kick** ')
-.addField('     **→ ban member ← ** ' ,' **-ban** ')
-.addField('     **→ from All ← ** ' ,' **-role all** ')
-.addField('     **→ from All Humans ←  ** ' ,' **-role humans** ')
-.addField('     **→ from All Bots ←  ** ' ,' **-role bots** ')
-.addField('     **→ delete all chat ←  ** ' ,' **-clear** ')
-.addField('     **→ move all to you voice ←  ** ' ,' **-mvall** ')
-.addField('     **→ hide channel ←  ** ' ,' **-hc** ')
-.addField('     **→ show channel ←  ** ' ,' **-sc* ')
-.addField('     **→ mute channel ←  ** ' ,' **-mc** ')
-.addField('     **→ un mute channel ←  ** ' ,' **--unmc** ')
+client.on("message", message => {
+    if (message.content === `${prefix}help`) {
+  const embed = new Discord.RichEmbed()
+      .setColor("RANDOM")
+      .setDescription(`
+${prefix}dc ⇏ Delete all channels
+${prefix}dr ⇏ Delete all roles
+${prefix}serooms ⇏ Create rooms
+${prefix}bc ⇏ Brodcast all member
+${prefix}call ⇏ Contact with admin
+${prefix}report⇏ Report a member
+${prefix}vk ⇏ Kick from voice
+${prefix}kick ⇏ Kick member
+${prefix}ban ⇏ Ban member
+${prefix}role all ⇏ From All
+${prefix}role humans ⇏ From All Humans
+${prefix}role bots ⇏ From All Bots
+${prefix}clear ⇏ Delete all chat
+${prefix}mvall ⇏ Move all to you voice
+${prefix}hc ⇏ Hide channel
+${prefix}sc ⇏ Show channel
+${prefix}mc ⇏ Mute channel
+${prefix}unmc ⇏ Unmute channel
 
 
-.setColor('RANDOM')
-  message.author.sendEmbed(embed);
-    }
-});
+ `)
+   message.channel.sendEmbed(embed)
+   
+   }
+   });
+
 
 client.on('message', omar => {
 var prefix = "-";
