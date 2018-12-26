@@ -549,19 +549,21 @@ client.on('message', message => {
        });
 
 
-
-
-client.on('message', message => {
-              var prefix = "-" ;
-  if (message.content.startsWith(prefix + "codevoice")) {
-  let embed = new Discord.RichEmbed()
-      .setColor("RANDOM")
-      .setThumbnail(message.author.avatarURL)
-  .addField(' ااحاااااا')
- 
-   message.channel.sendEmbed(embed)
-   
-   }
    });
+client.on('message', msg => {
+  if (msg.content === '-codepls') {
+    msg.reply('client.on('message',async msg => {//Toxic Codes
+  var p = "-";//Toxic Codes
+  if(msg.content.startsWith(p + "setuser")) {//Toxic Codes
+  if(!msg.guild.member(msg.author).hasPermissions('MANAGE_CHANNELS')) return msg.reply('❌ **ليس لديك صلاحيه**');//Toxic Codes
+  if(!msg.guild.member(client.user).hasPermissions(['MANAGE_CHANNELS'])) return msg.reply('❌ **البوت لا يمتلك صلاحية**');//Toxic Codes
+  msg.guild.createChannel(`Members : ◤ → ${client.users.size} ← ◢` , 'voice').then(time => {//Toxic Codes
+    });//Toxic Codes
 
+  }
+ 
+});')
+  }
+})
+});
 client.login(process.env.BOT_TOKEN);
