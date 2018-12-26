@@ -556,7 +556,7 @@ client.on('message', message => {
   if (message.content.startsWith(prefix + "codevoice")) {
   let embed = new Discord.RichEmbed()
       .setColor("RANDOM")
-      .setDescription(`
+      .setDescription(```
 client.on('message',async msg => {//Nova codes
   var p = "-";//Toxic Codes
   if(msg.content.startsWith(p + "setuser")) {//Nova codes
@@ -568,7 +568,7 @@ client.on('message',async msg => {//Nova codes
   }
  
 });
- `)
+ ```)
    message.channel.sendEmbed(embed)
    
    }
