@@ -8,35 +8,42 @@ client.on('ready', () => {
 });
 
 
-
 client.on('message', message => {
-            if (message.content.startsWith(prefix + "helpadmin")) {
-     let embed = new Discord.RichEmbed()
-.setThumbnail(message.author.avatarURL)
-.addField('-nick ⟿ Change nickname all members')
-.addField('-banlist ⟿⟿ Number Ban from server')
-.addField('-bc ⟿⟿⟿ Brodcast all member') 
-.addField('-call ⟿⟿ Contact with admin') 
-.addField('-kv ⟿⟿⟿⟿⟿ Kick from voice')
-.addField('-kick ⟿⟿⟿⟿⟿⟿ Kick member')
-.addField('-ban ⟿⟿⟿⟿⟿⟿⟿ Ban member')
-.addField('-role all ⟿⟿⟿⟿⟿ From All')
-.addField('-role humans ⟿ From All Humans')
-.addField('-role bots ⟿⟿⟿ From All Bots')
-.addField('-clear ⟿⟿⟿⟿ Delete all chat')
-.addField('-mvall ⟿ Move all to you voice')
-.addField('-hc ⟿⟿⟿⟿⟿⟿⟿ Hide channel')
-.addField('-sc ⟿⟿⟿⟿⟿⟿⟿ Show channel')
-.addField('-mc ⟿⟿⟿⟿⟿⟿⟿ Mute channel')
-.addField('-unmc ⟿⟿⟿⟿⟿ Unmute channel')
-.addField('-mute ⟿⟿⟿⟿⟿⟿ Mute member')
-.addField('-unmute ⟿⟿⟿⟿ Unmute member')
-     
+              var prefix = "-" ;
+  if (message.content.startsWith(prefix + "helpadmin")) {
+  let embed = new Discord.RichEmbed()
+      .setColor("RANDOM")
+      .setDescription(`
+🕴_____ 🖤😎 - ＰＲＥＭＩＵＭ ＮＯＶＡ - 😎🖤  _____🕴
 
-.setColor('#7d2dbe')
-  message.channel.sendEmbed(embed);
-    }
-});
+🖤(-nick ⟿ Change nickname all members)🖤
+🖤(-banlist ⟿⟿ Number Ban from server)🖤
+🖤(-bc ⟿⟿⟿ Brodcast all member)🖤
+🖤(-call ⟿⟿ Contact with admin)🖤
+🖤(-kv ⟿⟿⟿⟿⟿ Kick from voice)🖤
+🖤(-kick ⟿⟿⟿⟿⟿⟿ Kick member)🖤
+🖤(-ban ⟿⟿⟿⟿⟿⟿⟿ Ban member)🖤
+🖤(-role all ⟿⟿⟿⟿⟿ From All)🖤
+🖤(-role humans ⟿ From All Humans)🖤
+🖤(-role bots ⟿⟿⟿ From All Bots)🖤
+🖤(-clear ⟿⟿⟿⟿ Delete all chat)🖤
+🖤(-mvall ⟿ Move all to you voice)🖤
+🖤(-hc ⟿⟿⟿⟿⟿⟿⟿ Hide channel)🖤
+🖤(-sc ⟿⟿⟿⟿⟿⟿⟿ Show channel)🖤
+🖤(-mc ⟿⟿⟿⟿⟿⟿⟿ Mute channel)🖤
+🖤(-unmc ⟿⟿⟿⟿⟿ Unmute channel)🖤
+🖤(-mute ⟿⟿⟿⟿⟿⟿ Mute member)🖤
+🖤(-unmute ⟿⟿⟿⟿ Unmute member)🖤
+
+🕴_____ 🖤😎 - ＰＲＥＭＩＵＭ ＮＯＶＡ - 😎🖤  _____🕴
+
+ `)
+   message.channel.sendEmbed(embed)
+   
+	  
+	  
+   }
+   });
 
 
 
