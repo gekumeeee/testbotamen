@@ -655,7 +655,6 @@ if (message.content.startsWith(adminprefix + 'setavatar')) {//Nova Codes
 }
 });//Nova Codes
 	
-	const adminprefix = "-";
 const developers = ["351366504068939777"]//Nova Codes
 client.on('message', omar => {
 if(omar.content.split(' ')[0] == adminprefix + 'dc') {  // delete all channels
