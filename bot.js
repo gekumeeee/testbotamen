@@ -8,38 +8,90 @@ client.on('ready', () => {
 });
 
 client.on('message', message => {
-              var prefix = "-" ;
-  if (message.content.startsWith(prefix + "help")) {
-  let embed = new Discord.RichEmbed()
-      .setColor("RANDOM")
-      .setDescription(`
-🕴_____ 🖤😎 - ＰＲＥＭＩＵＭ ＮＯＶＡ - 😎🖤  _____🕴
+ var prefix = "_";
+if (message.content.startsWith(prefix + 'help')) {
+    let pages = [
+	`=-=-=-=-=-= 🌍 Public Commands - اوامر عامة 🌍 =-=-=-=-=-=
+    ✴ _sugg ====> To Suggest | لعمل اقتراح
+    ✴ _id ======> To Show Your ID | ايدي حسابك
+    ✴ _allbots => Show All Bots In The Server | لاظهار جميع البوتات
+    ✴ _bot =====> Information Of The Bot | معلومات البوت
+    ✴ _server ==> Information Of The Server | معلومات السيرفر
+    ✴ _count ===> Member Count | عدد الاشخاص في السيرفر
+    ✴ _cal =====> To Calculate | اله لحاسبة 
+    ✴ _tag =====> To Tag A Word | لعمل تاق لكلمة 
+    ✴ _rooms ===> Show Rooms Of Server | اظهار الرومات الي في السيرفر
+    ✴ _za5 =====> To decorate Some Word | لزخرفة الكلمات
+    ✴ _roles ===> Show Roles Of The Server | اظهار الرانكات
+    ✴ _emojis ==> Emoji Of Server | ايموجيات السيرفر   
+    ✴ _say =====> The Bot Say Any Thing | تكرار اي شي كتبتو
+    ✴ _image ===> To Show Image Of Server | لاظهار صورة السيرفر 
+    ✴ _contact => To Contact Owners Bot | مراسلة صاحب البوت
+    ✴ _inv =====> Invite server | الدعوة السيرفر
+    ✴ _embed ===> To Embed | لتكرار اي شي كتبتو بطريقة حلوة
+    ✴ _avatar ==> Your Avatar | صورتك الشخصية
+    ✴ _support => Server Support | سيرفر الدعم الفني
+    ✴ _mr ======> Status of members  | حالة اعضاء السيرفر 
+     ===========================================================
+      React With ▶ To See Admins Commands`,
+	`=-=-=-=-=-= 🔧  Admin Commands - اوامر ادارية 🔧 =-=-=-=-=-=
+             🖤(-bc ⟿⟿⟿ Brodcast all member)🖤
+             🖤(-call ⟿⟿ Contact with admin)🖤
+             🖤(-report ⟿⟿⟿ Report a member)🖤
+             🖤(-kv ⟿⟿⟿⟿⟿ Kick from voice)🖤
+             🖤(-kick ⟿⟿⟿⟿⟿⟿ Kick member)🖤
+             🖤(-ban ⟿⟿⟿⟿⟿⟿⟿ Ban member)🖤
+             🖤(-role all ⟿⟿⟿⟿⟿ From All)🖤
+             🖤(-role humans ⟿ From All Humans)🖤
+             🖤(-role bots ⟿⟿⟿ From All Bots)🖤
+             🖤(-clear ⟿⟿⟿⟿ Delete all chat)🖤
+             🖤(-mvall ⟿ Move all to you voice)🖤
+             🖤(-hc ⟿⟿⟿⟿⟿⟿⟿ Hide channel)🖤
+             🖤(-sc ⟿⟿⟿⟿⟿⟿⟿ Show channel)🖤
+             🖤(-mc ⟿⟿⟿⟿⟿⟿⟿ Mute channel)🖤
+             🖤(-unmc ⟿⟿⟿⟿⟿ Unmute channel)🖤
+             🖤(-mute ⟿⟿⟿⟿⟿⟿ Mute member)🖤
+             🖤(-unmute ⟿⟿⟿⟿ Unmute member)🖤
+	let page = 1;
 
-🖤(-bc ⟿⟿⟿ Brodcast all member)🖤
-🖤(-call ⟿⟿ Contact with admin)🖤
-🖤(-report ⟿⟿⟿ Report a member)🖤
-🖤(-kv ⟿⟿⟿⟿⟿ Kick from voice)🖤
-🖤(-kick ⟿⟿⟿⟿⟿⟿ Kick member)🖤
-🖤(-ban ⟿⟿⟿⟿⟿⟿⟿ Ban member)🖤
-🖤(-role all ⟿⟿⟿⟿⟿ From All)🖤
-🖤(-role humans ⟿ From All Humans)🖤
-🖤(-role bots ⟿⟿⟿ From All Bots)🖤
-🖤(-clear ⟿⟿⟿⟿ Delete all chat)🖤
-🖤(-mvall ⟿ Move all to you voice)🖤
-🖤(-hc ⟿⟿⟿⟿⟿⟿⟿ Hide channel)🖤
-🖤(-sc ⟿⟿⟿⟿⟿⟿⟿ Show channel)🖤
-🖤(-mc ⟿⟿⟿⟿⟿⟿⟿ Mute channel)🖤
-🖤(-unmc ⟿⟿⟿⟿⟿ Unmute channel)🖤
-🖤(-mute ⟿⟿⟿⟿⟿⟿ Mute member)🖤
-🖤(-unmute ⟿⟿⟿⟿ Unmute member)🖤
+    let embed = new Discord.RichEmbed()
+    .setColor('RANDOM')
+    .setFooter(`Page ${page} of ${pages.length}`)
+    .setDescription(pages[page-1])
 
-🕴_____ 🖤😎 - ＰＲＥＭＩＵＭ ＮＯＶＡ - 😎🖤  _____🕴
+    message.channel.sendEmbed(embed).then(msg => {
 
- `)
-   message.channel.sendEmbed(embed)
-   
-   }
-   });
+        msg.react('◀').then( r => {
+            msg.react('▶')
+
+
+        const backwardsFilter = (reaction, user) => reaction.emoji.name === '◀' && user.id === message.author.id;
+        const forwardsFilter = (reaction, user) => reaction.emoji.name === '▶' && user.id === message.author.id;
+
+
+        const backwards = msg.createReactionCollector(backwardsFilter, { time: 2000000});
+        const forwards = msg.createReactionCollector(forwardsFilter, { time: 2000000});
+
+
+
+        backwards.on('collect', r => {
+            if (page === 1) return;
+            page--;
+            embed.setDescription(pages[page-1]);
+            embed.setFooter(`Page ${page} of ${pages.length}`);
+            msg.edit(embed)
+        })
+        forwards.on('collect', r => {
+            if (page === pages.length) return;
+            page++;
+            embed.setDescription(pages[page-1]);
+            embed.setFooter(`Page ${page} of ${pages.length}`);
+            msg.edit(embed)
+        })
+        })
+    })
+    }
+});
 
 
 
