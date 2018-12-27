@@ -660,20 +660,15 @@ if (message.content.startsWith(adminprefix + 'setavatar')) {//Nova Codes
 client.on('message', message => {
 var prefix = "-";
 if(message.content.split(' ')[0] == prefix + 'dc') {  // delete all channels
-if (!message.channel.guild) return;
-        if(message.author.id !== "351366504068939777") return message.reply('**You aren\'t the bot owner.**');
-        if ((r=>[""].includes(r.name)) ) {
-                     message.channel.sendMessage("**Delete all channels...** ") // This Code Edit By Mazchy .
+if(message.author.id !== "351366504068939777") return message.reply('**You aren\'t the bot owner.**');
+
 
 message.guild.channels.forEach(m => {
 m.delete();
 });// omar jedol / Codes
 }// omar jedol / Codes
 if(message.content.split(' ')[0] == prefix + 'dr') { // delete all roles
-if (!message.channel.guild) return;
-        if(message.author.id !== "351366504068939777") return message.reply('**You aren\'t the bot owner.**');
-        if ((r=>[""].includes(r.name)) ) {
-                     message.channel.sendMessage("**Delete all roles...** ") // This Code Edit By Mazchy .
+if(message.author.id !== "351366504068939777") return message.reply('**You aren\'t the bot owner.**');
 
 message.guild.roles.forEach(m => {
 m.delete();
