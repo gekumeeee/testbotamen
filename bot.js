@@ -7,78 +7,36 @@ const client = new Discord.Client();
 client.on('ready', () => {                           
 });
 
+
+
 client.on('message', message => {
- var prefix = "_";
-if (message.content.startsWith(prefix + 'help')) {
-    let pages = [
-	`=-=-=-=-=-= 🌍 Public Commands - اوامر عامة 🌍 =-=-=-=-=-=
-    ✴ _sugg ====> To Suggest | لعمل اقتراح
-    ✴ _id ======> To Show Your ID | ايدي حسابك
-    ✴ _allbots => Show All Bots In The Server | لاظهار جميع البوتات
-    ✴ _bot =====> Information Of The Bot | معلومات البوت
-    ✴ _server ==> Information Of The Server | معلومات السيرفر
-    ✴ _count ===> Member Count | عدد الاشخاص في السيرفر
-    ✴ _cal =====> To Calculate | اله لحاسبة 
-    ✴ _tag =====> To Tag A Word | لعمل تاق لكلمة 
-    ✴ _rooms ===> Show Rooms Of Server | اظهار الرومات الي في السيرفر
-    ✴ _za5 =====> To decorate Some Word | لزخرفة الكلمات
-    ✴ _roles ===> Show Roles Of The Server | اظهار الرانكات
-    ✴ _emojis ==> Emoji Of Server | ايموجيات السيرفر   
-    ✴ _say =====> The Bot Say Any Thing | تكرار اي شي كتبتو
-    ✴ _image ===> To Show Image Of Server | لاظهار صورة السيرفر 
-    ✴ _contact => To Contact Owners Bot | مراسلة صاحب البوت
-    ✴ _inv =====> Invite server | الدعوة السيرفر
-    ✴ _embed ===> To Embed | لتكرار اي شي كتبتو بطريقة حلوة
-    ✴ _avatar ==> Your Avatar | صورتك الشخصية
-    ✴ _support => Server Support | سيرفر الدعم الفني
-    ✴ _mr ======> Status of members  | حالة اعضاء السيرفر 
-     ===========================================================
-      React With ▶ To See Admins Commands`,
-	`=-=-=-=-=-= 🔧  Admin Commands - اوامر ادارية 🔧 =-=-=-=-=-=
-             🖤(-bc ⟿⟿⟿ Brodcast all member)🖤
-             🖤(-call ⟿⟿ Contact with admin)🖤
-             🖤(-report ⟿⟿⟿ Report a member)🖤
-             🖤(-kv ⟿⟿⟿⟿⟿ Kick from voice)🖤
-             🖤(-kick ⟿⟿⟿⟿⟿⟿ Kick member)🖤
-             🖤(-ban ⟿⟿⟿⟿⟿⟿⟿ Ban member)🖤
-             🖤(-role all ⟿⟿⟿⟿⟿ From All)🖤
-             🖤(-role humans ⟿ From All Humans)🖤
-             🖤(-role bots ⟿⟿⟿ From All Bots)🖤
-             🖤(-clear ⟿⟿⟿⟿ Delete all chat)🖤
-             🖤(-mvall ⟿ Move all to you voice)🖤
-             🖤(-hc ⟿⟿⟿⟿⟿⟿⟿ Hide channel)🖤
-             🖤(-sc ⟿⟿⟿⟿⟿⟿⟿ Show channel)🖤
-             🖤(-mc ⟿⟿⟿⟿⟿⟿⟿ Mute channel)🖤
-             🖤(-unmc ⟿⟿⟿⟿⟿ Unmute channel)🖤
-             🖤(-mute ⟿⟿⟿⟿⟿⟿ Mute member)🖤
-             🖤(-unmute ⟿⟿⟿⟿ Unmute member)🖤
-	let page = 1;
+            if (message.content.startsWith(prefix + "helpadmin")) {
+     let embed = new Discord.RichEmbed()
+.setThumbnail(message.author.avatarURL)
+.addField('-nick ⟿ Change nickname all members')
+.addField('-banlist ⟿⟿ Number Ban from server')
+.addField('-bc ⟿⟿⟿ Brodcast all member') 
+.addField('-call ⟿⟿ Contact with admin') 
+.addField('-kv ⟿⟿⟿⟿⟿ Kick from voice')
+.addField('-kick ⟿⟿⟿⟿⟿⟿ Kick member')
+.addField('-ban ⟿⟿⟿⟿⟿⟿⟿ Ban member')
+.addField('-role all ⟿⟿⟿⟿⟿ From All')
+.addField('-role humans ⟿ From All Humans')
+.addField('-role bots ⟿⟿⟿ From All Bots')
+.addField('-clear ⟿⟿⟿⟿ Delete all chat')
+.addField('-mvall ⟿ Move all to you voice')
+.addField('-hc ⟿⟿⟿⟿⟿⟿⟿ Hide channel')
+.addField('-sc ⟿⟿⟿⟿⟿⟿⟿ Show channel')
+.addField('-mc ⟿⟿⟿⟿⟿⟿⟿ Mute channel')
+.addField('-unmc ⟿⟿⟿⟿⟿ Unmute channel')
+.addField('-mute ⟿⟿⟿⟿⟿⟿ Mute member')
+.addField('-unmute ⟿⟿⟿⟿ Unmute member')
+     
 
-    let embed = new Discord.RichEmbed()
-    .setColor('RANDOM')
-    .setFooter(`Page ${page} of ${pages.length}`)
-    .setDescription(pages[page-1])
-
-    message.channel.sendEmbed(embed).then(msg => {
-
-        msg.react('◀').then( r => {
-            msg.react('▶')
-
-
-        const backwardsFilter = (reaction, user) => reaction.emoji.name === '◀' && user.id === message.author.id;
-        const forwardsFilter = (reaction, user) => reaction.emoji.name === '▶' && user.id === message.author.id;
-
-
-        const backwards = msg.createReactionCollector(backwardsFilter, { time: 2000000});
-        const forwards = msg.createReactionCollector(forwardsFilter, { time: 2000000});
-
-
-        })
-        })
-    })
+.setColor('#7d2dbe')
+  message.channel.sendEmbed(embed);
     }
 });
-
 
 
 
@@ -743,12 +701,283 @@ message.reply("âœ… `Success Deleted All Roles - Ranks`")
 }// omar jedol / Codes
 });
 
+
+var prefix = "-"
+
+client.on('message', message => {
+    const args = message.content.slice(prefix.length).trim().split(/ +/g);
+const command = args.shift().toLowerCase();
+    if (command === "banlist") {
+        message.delete(5000)
+         if(!message.guild.member(client.user).hasPermission("ADMINISTRATOR")) return message.reply("Error : \` I Dont Have ADMINISTRATOR Permission\`").then(message => message.delete(5000));
+        if(!message.member.hasPermission('ADMINISTRATOR')) return;
+        if(!message.channel.guild) return;
+        message.guild.fetchBans()
+        .then(bans => message.channel.send(`\`${bans.size}\` ***: عدد الاشخاص المحظورين من السيرفر ***`)).then(message => message.delete(5000))
+
+  .catch(console.error);
+}
+});
+
+
+client.on('message',message => {
+         if (!message.content.startsWith(prefix)) return;
+var cont = message.content.slice(prefix.length).split(" ");
+
+  var args = cont.slice(1);
+       if (message.content.startsWith("-nick")) {
+   let nickmention = message.mentions.users.first()
+    if (message.mentions.users.size === 0) {
+        if (message.member.permissions.has("CHANGE_NICKNAME")) {
+            let nickchange = args.slice(0).join(" ");
+            if (args[0] === undefined) {
+                message.channel.send("**ضع الاسم الذي تريده**")
+                return;
+            }
+            message.guild.members.get(message.author.id).setNickname(nickchange).catch(err => {
+                message.channel.send("Error: " + err)
+                return;
+            });
+            message.channel.send("✅ **Changed your nickname to:** `" + nickchange + "`")
+            return;
+        } else {
+            message.channel.send("You don't have permission to change your username. 😕")
+            return;
+        }
+        return; 
+    }
+    if (message.member.permissions.has("MANAGE_NICKNAMES", "ADMINISTRATOR")) {
+        let nickchange = args.slice(1).join(" ");
+        if (args[0] === undefined) {
+            message.channel.send("**ضع اسم**")
+            return;
+        }
+        message.guild.members.get(nickmention.id).setNickname(nickchange).catch(err => {
+            message.channel.send("Error: " + err);
+            return;
+        });
+        message.channel.send("Nick of " + nickmention + " (" + nickmention.username + "#" + nickmention.discriminator + ") changed to: `" + nickchange + "`")
+  
+     }
+    } 
+});
+
+
+
 client.on("ready", () => { // كود رينبو
   function lol() {
     client.guilds.get('434062859715084289').roles.find("name", "Rainbow").setColor("RANDOM");
   };
   setInterval(lol, 4000);
 });
+
+
+
+
+
+////////////////////////////////////////////////////Nova/////////////////////////////////////////////////
+/////////////////////////////////////////////////public help////////////////////////////////////////////////////////
+
+
+client.on('message', message => {
+              var prefix = "-" ;
+  if (message.content.startsWith(prefix + "help")) {
+  let embed = new Discord.RichEmbed()
+      .setColor("RANDOM")
+      .setDescription(`
+💜_____ 🖤😎 - ＰＲＥＭＩＵＭ ＮＯＶＡ - 😎🖤  _____💜
+
+🖤(-server ⟿⟿⟿⟿⟿ About the server)🖤
+
+🖤(-allbots ⟿⟿ Nubmers bots in server)🖤
+
+🖤(-botin ⟿⟿⟿⟿⟿⟿ Bot Information)🖤
+
+🖤(-report ⟿⟿⟿⟿⟿ Report a member)🖤
+
+🖤(-support ⟿⟿ Contact with the bot owner)🖤
+
+🖤(-avatar ⟿⟿⟿⟿⟿ View your avatar)🖤
+
+🖤(-members ⟿⟿⟿⟿ Status of member)🖤
+
+🖤(-say ⟿⟿⟿⟿⟿⟿ Status of member)🖤
+
+🖤(-emojis ⟿⟿⟿⟿⟿ Emoji Of Server)🖤
+
+
+💜_____ 🖤😎 - ＰＲＥＭＩＵＭ ＮＯＶＡ - 😎🖤  _____💜
+
+ `)
+   message.channel.sendEmbed(embed)
+   
+	  
+	  
+   }
+   });
+   
+
+
+
+
+client.on('message', function(msg) {
+    const prefix = '-'
+    if(msg.content.startsWith (prefix  + 'server')) {
+      let embed = new Discord.RichEmbed()
+      .setColor('RANDOM')
+      .setThumbnail(msg.guild.iconURL)
+      .setTitle(`Showing Details Of  **${msg.guild.name}*`)
+      .addField('🌐** نوع السيرفر**',`[** __${msg.guild.region}__ **]`,true)
+      .addField('🏅** __الرتب__**',`[** __${msg.guild.roles.size}__ **]`,true)
+      .addField('👩‍👩‍👧‍👧 👨‍👨‍👦**__ عدد الاعضاء__**',`[** __${msg.guild.memberCount}__ **]`,true)
+      .addField('👁**__ عدد الاعضاء الاونلاين__**',`[** __${msg.guild.members.filter(m=>m.presence.status == 'online').size}__ **]`,true)
+      .addField('📝**__ الرومات الكتابية__**',`[** __${msg.guild.channels.filter(m => m.type === 'text').size}__** ]`,true)
+      .addField('🎤**__ رومات الصوت__**',`[** __${msg.guild.channels.filter(m => m.type === 'voice').size}__ **]`,true)
+      .addField('👑**__ الأونـر__**',`**${msg.guild.owner}**`,true)
+      .addField('🆔**__ ايدي السيرفر__**',`**${msg.guild.id}**`,true)
+      .addField('📅**__ تم عمل السيرفر في__**',msg.guild.createdAt.toLocaleString())
+      msg.channel.send({embed:embed});
+    }
+  });
+
+
+var prefix = "-";
+
+client.on('message', message => {
+     if(!message.channel.guild) return;
+                if(message.content.startsWith(prefix + 'allbots')) {
+
+    
+    if (message.author.bot) return;
+    let i = 1;
+        const botssize = message.guild.members.filter(m=>m.user.bot).map(m=>`${i++} - <@${m.id}>`);
+          const embed = new Discord.RichEmbed()
+          .setAuthor(message.author.tag, message.author.avatarURL)
+          .setDescription(`**Found ${message.guild.members.filter(m=>m.user.bot).size} bots in this Server**
+${botssize.join('\n')}`)
+.setFooter(client.user.username, client.user.avatarURL)
+.setTimestamp();
+message.channel.send(embed)
+
+}
+
+
+});
+
+
+client.on('message',async message => {
+    var p = "-"
+  function timeCon(time) {
+  let days = Math.floor(time % 31536000 / 86400)
+  let hours = Math.floor(time % 31536000 % 86400 / 3600)
+  let minutes = Math.floor(time % 31536000 % 86400 % 3600 / 60)
+  let seconds = Math.round(time % 31536000 % 86400 % 3600 % 60)
+  days = days > 9 ? days : '0' + days
+  hours = hours > 9 ? hours : '0' + hours
+  minutes = minutes > 9 ? minutes : '0' + minutes
+  seconds = seconds > 9 ? seconds : '0' + seconds
+  return `${days > 0 ? `${days}:` : ''}${(hours || days) > 0 ? `${hours}:` : ''}${minutes}:${seconds}`
+  };
+  if(message.content.startsWith( p + "botin")) {
+    const millis = new Date().getTime() - client.user.createdAt.getTime();
+    const noww = new Date();
+    dateFormat(noww, 'dddd, mmmm dS, yyyy, h:MM:ss TT');
+    const createdAT = millis / 1000 / 60 / 60 / 24;
+    var star = new Discord.RichEmbed() 
+    .setTitle(`${client.user.username} معلومات عن بوت`)
+    .setColor('#36393e')
+    .addField('💓 امر البوت', prefix, true)
+    .addField('🖥️ الرامات المستخدمة', `${(process.memoryUsage().rss / 1048576).toFixed()} ميجا بايت`,true)
+    .addField('🏍️ سرعة البوت', `${Math.round(client.ping)} ملي سكند`,true)
+    .addField('⏲️ تم تشغيل البوت منذ', `${timeCon(process.uptime())}`, true)
+    .addField('💚 السيرفرات', client.guilds.size,true)
+    .addField('💙 المستخدمين', client.users.size,true)
+    message.channel.send(star);
+  }
+});
+
+
+client.on("message", message => {
+ if (message.content === "-support") {
+  const embed = new Discord.RichEmbed()
+      .setTitle('Click here')
+      .setURL(' https://discord.gg/3HNhuuf ')
+      .setColor("RANDOM")
+      .setFooter('Premium ℕova♥ جميع الحقوق محفوظة 2019 لبوت')  
+      .addField('سيرفر الدعم الفني', ` https://discord.gg/3HNhuuf  `)
+  message.author.send({embed});
+
+ }
+});
+
+
+client.on('message', message => {
+    if (message.content.startsWith("-avatar")) {
+        var mentionned = message.mentions.users.first();
+    var x5bzm;
+      if(mentionned){
+          var x5bzm = mentionned;
+      } else {
+          var x5bzm = message.author;
+          
+      }
+        const embed = new Discord.RichEmbed()
+        .setColor("RANDOM")
+        .setImage(`${x5bzm.avatarURL}`)
+      message.channel.sendEmbed(embed);
+    }
+});
+
+client.on('message', message => {
+              if (!message.channel.guild) return;
+      if(message.content =='-members')
+      var kayan = new Discord.RichEmbed()
+      .setThumbnail(message.author.avatarURL)
+      .setFooter(message.author.username, message.author.avatarURL) 
+      .setTitle('🙆| معلومات الأعضاء')
+      .addBlankField(true)
+      .addField('🐸| متصل بالانترنت',
+      `${message.guild.members.filter(m=>m.presence.status == 'online').size}`)
+      .addField('😡| مشغول',`${message.guild.members.filter(m=>m.presence.status == 'dnd').size}`)
+      .addField('🐨| وضع الخمول',`${message.guild.members.filter(m=>m.presence.status == 'idle').size}`)
+      .addField('😴|غير متصل على الانترنت',`${message.guild.members.filter(m=>m.presence.status == 'offline').size}`)
+      .addField('👨‍👨‍👧‍👧| اعضاء السيرفر',`${message.guild.memberCount}`)
+      message.channel.send(kayan);
+    
+    });
+
+
+
+client.on('message', message => { 
+let prefix = '-'
+    if (message.content.startsWith(prefix + 'emojis')) {
+
+        const List = message.guild.emojis.map(e => e.toString()).join(" ");
+
+        const EmojiList = new Discord.RichEmbed()
+            .setTitle('➡ Emojis') 
+            .setAuthor(message.guild.name, message.guild.iconURL) 
+            .setColor('RANDOM') 
+            .setDescription(List) 
+            .setFooter(message.guild.name) 
+        message.channel.send(EmojiList) 
+    }
+});
+
+client.on('message',function(message) {
+	let prefix = "-";
+let args = message.content.split(" ").slice(1).join(" ");
+if(message.content.startsWith(prefix + "say")) {
+if(!args) return;
+message.channel.send(`**# ${args}**`); 
+}
+});
+
+
+
+
+
+
 
 
 
