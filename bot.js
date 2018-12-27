@@ -654,6 +654,8 @@ if (message.content.startsWith(adminprefix + 'setavatar')) {//Nova Codes
     message.channel.send(`Changing The Avatar To :**${argresult}** `);//Nova Codes
 }
 	
+});
+	
 const developers = ["351366504068939777"]//Nova Codes
 client.on('message', message => {//Nova Codes
 if(message.content.split(' ')[0] == adminprefix + 'dc') {  // delete all channels
