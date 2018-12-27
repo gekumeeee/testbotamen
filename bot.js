@@ -5,6 +5,7 @@ const client = new Discord.Client();
 
 // playing
 client.on('ready', () => {                           
+});
 
 client.on('message', message => {
               var prefix = "-" ;
