@@ -18,7 +18,7 @@ client.on('message', message => {
 🖤(-bc ⟿⟿⟿ Brodcast all member)🖤
 🖤(-call ⟿⟿ Contact with admin)🖤
 🖤(-report ⟿⟿⟿ Report a member)🖤
-🖤(-vk ⟿⟿⟿⟿⟿ Kick from voice)🖤
+🖤(-kv ⟿⟿⟿⟿⟿ Kick from voice)🖤
 🖤(-kick ⟿⟿⟿⟿⟿⟿ Kick member)🖤
 🖤(-ban ⟿⟿⟿⟿⟿⟿⟿ Ban member)🖤
 🖤(-role all ⟿⟿⟿⟿⟿ From All)🖤
@@ -582,6 +582,38 @@ client.on('message', message => {
      }
        });
 
+
+client.on("message", message => {
+    var prefix = "-";
+    const command = message.content.split(" ")[0];
+
+    if(command == prefix+"kv"){
+
+        if (!message.guild.member(message.author).hasPermission('MOVE_MEMBERS') || !message.guild.member(message.author).hasPermission('ADMINISTRATOR')) {
+            return message.reply('you do not have permission to perform this action!');
+        }
+
+        var member = message.guild.members.get(message.mentions.users.array()[0].id);
+        if(!message.mentions.users){
+            message.reply("please mention the member")
+            return;
+        }
+
+    if(!member.voiceChannel){
+    message.reply("i can't include voice channel for member!")
+    return;
+    }
+              message.guild.createChannel('voicekick', 'voice').then(c => {
+                member.setVoiceChannel(c).then(() => {
+                    c.delete(305).catch(console.log)
+        
+
+
+    
+      });
+     });
+    }
+});
 	
 	client.on('message', message=>{
     if (message.content ===  "-leaveserver"){
@@ -677,7 +709,7 @@ client.on("ready", () => { // كود رينبو
   function lol() {
     client.guilds.get('434062859715084289').roles.find("name", "Rainbow").setColor("RANDOM");
   };
-  setInterval(lol, 5000);
+  setInterval(lol, 4000);
 });
 
 
