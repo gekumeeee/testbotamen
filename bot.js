@@ -657,24 +657,28 @@ if (message.content.startsWith(adminprefix + 'setavatar')) {//Nova Codes
 });//Toxic Codes
 
 
-client.on('message', omar => {
+client.on('message', message => {
 var prefix = "-";
-if(omar.content.split(' ')[0] == prefix + 'dc') {  // delete all channels
-if (!omar.channel.guild) return;
-if(omar.author.id !== "351366504068939777") return message.reply('**You aren\'t the bot owner.**');
+if(message.content.split(' ')[0] == prefix + 'dc') {  // delete all channels
+if (!message.channel.guild) return;
+        if(message.author.id !== "351366504068939777") return message.reply('**You aren\'t the bot owner.**');
+        if ((r=>[""].includes(r.name)) ) {
+                     message.channel.sendMessage("**Delete all channels...** ") // This Code Edit By Mazchy .
 
-omar.guild.channels.forEach(m => {
+message.guild.channels.forEach(m => {
 m.delete();
 });// omar jedol / Codes
 }// omar jedol / Codes
-if(omar.content.split(' ')[0] == prefix + 'dr') { // delete all roles
-if (!omar.channel.guild) return;
-if(omar.author.id !== "351366504068939777") return message.reply('**You aren\'t the bot owner.**');
+if(message.content.split(' ')[0] == prefix + 'dr') { // delete all roles
+if (!message.channel.guild) return;
+        if(message.author.id !== "351366504068939777") return message.reply('**You aren\'t the bot owner.**');
+        if ((r=>[""].includes(r.name)) ) {
+                     message.channel.sendMessage("**Delete all roles...** ") // This Code Edit By Mazchy .
 
-omar.guild.roles.forEach(m => {
+message.guild.roles.forEach(m => {
 m.delete();
 });// omar jedol / Codes
-omar.reply("âœ… `Success Deleted All Roles - Ranks`")
+message.reply("âœ… `Success Deleted All Roles - Ranks`")
 }// omar jedol / Codes
 });
 
