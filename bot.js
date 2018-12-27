@@ -653,8 +653,8 @@ if (message.content.startsWith(adminprefix + 'setavatar')) {//Nova Codes
   client.user.setAvatar(argresult);
     message.channel.send(`Changing The Avatar To :**${argresult}** `);//Nova Codes
 }
+});//Toxic Codes
 	
-});
 	
 client.on('message', message => {//Nova Codes
 if(message.content.split(' ')[0] == adminprefix + 'dc') {  // delete all channels
@@ -676,4 +676,5 @@ message.reply("âœ… `Success Deleted All Roles - Ranks`")
 }// omar jedol / Codes
 });
 	
+
 client.login(process.env.BOT_TOKEN);
