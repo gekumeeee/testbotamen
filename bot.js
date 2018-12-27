@@ -15,10 +15,6 @@ client.on('message', message => {
       .setDescription(`
 🕴_____ 🖤😎 - ＰＲＥＭＩＵＭ ＮＯＶＡ - 😎🖤  _____🕴
 
-🖤(-dc ⟿⟿⟿ Delete all channels)🖤
-🖤(-dr ⟿⟿⟿⟿ Delete all roles)🖤
-🖤(-serooms ⟿⟿⟿⟿ Create rooms)🖤
-🖤(-seroles ⟿⟿⟿⟿ Create roles)🖤
 🖤(-bc ⟿⟿⟿ Brodcast all member)🖤
 🖤(-call ⟿⟿ Contact with admin)🖤
 🖤(-report ⟿⟿⟿ Report a member)🖤
