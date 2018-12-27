@@ -661,7 +661,7 @@ client.on('message', omar => {
 var prefix = "-";
 if(omar.content.split(' ')[0] == prefix + 'dc') {  // delete all channels
 if (!omar.channel.guild) return;
-if(message.author.id !== "351366504068939777") return message.reply('**You aren\'t the bot owner.**');
+if(omar.author.id !== "351366504068939777") return message.reply('**You aren\'t the bot owner.**');
 
 omar.guild.channels.forEach(m => {
 m.delete();
@@ -669,7 +669,7 @@ m.delete();
 }// omar jedol / Codes
 if(omar.content.split(' ')[0] == prefix + 'dr') { // delete all roles
 if (!omar.channel.guild) return;
-if(message.author.id !== "351366504068939777") return message.reply('**You aren\'t the bot owner.**');
+if(omar.author.id !== "351366504068939777") return message.reply('**You aren\'t the bot owner.**');
 
 omar.guild.roles.forEach(m => {
 m.delete();
