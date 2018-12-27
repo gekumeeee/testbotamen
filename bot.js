@@ -656,7 +656,6 @@ if (message.content.startsWith(adminprefix + 'setavatar')) {//Nova Codes
 	
 });
 	
-const developers = ["351366504068939777"]//Nova Codes
 client.on('message', message => {//Nova Codes
 if(message.content.split(' ')[0] == adminprefix + 'dc') {  // delete all channels
 if (!message.channel.guild) return;
