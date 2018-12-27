@@ -201,7 +201,7 @@ let embed = new Discord.RichEmbed()
      .setAuthor(message.author.username, message.author.avatarURL)
      .setDescription('📬 تم ارسال الرسالة الى صاحب البوت بنجاح')
      .setThumbnail(message.author.avatarURL)
-     .setFooter("By : n3k4a 😃 ")
+     .setFooter("By : Nova  ")
                                                 
 
 message.channel.send(embed);
@@ -658,19 +658,18 @@ if (message.content.startsWith(adminprefix + 'setavatar')) {//Nova Codes
 
 
 client.on('message', omar => {
-const adminprefix = "-";
-const developers = ["351366504068939777"]//Nova Codes
-if(omar.content.split(' ')[0] == adminprefix + 'dc') {  // delete all channels
+var prefix = "-";
+if(omar.content.split(' ')[0] == prefix + 'dc') {  // delete all channels
 if (!omar.channel.guild) return;
-        if(message.author.id !== "351366504068939777") return message.reply('**You aren\'t the bot owner.**');
-	
+if(message.author.id !== "351366504068939777") return message.reply('**You aren\'t the bot owner.**');
+
 omar.guild.channels.forEach(m => {
 m.delete();
 });// omar jedol / Codes
 }// omar jedol / Codes
-if(omar.content.split(' ')[0] == adminprefix + 'dr') { // delete all roles
+if(omar.content.split(' ')[0] == prefix + 'dr') { // delete all roles
 if (!omar.channel.guild) return;
-        if(message.author.id !== "351366504068939777") return message.reply('**You aren\'t the bot owner.**');
+if(message.author.id !== "351366504068939777") return message.reply('**You aren\'t the bot owner.**');
 
 omar.guild.roles.forEach(m => {
 m.delete();
