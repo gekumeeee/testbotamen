@@ -619,41 +619,41 @@ client.on('message', msg => {//Nova Codes
   })//Nova Codes
 
 const adminprefix = "-";
-const developers = ["351366504068939777"]//Toxic Codes
-client.on('message', message => {//Toxic Codes
-    var argresult = message.content.split(` `).slice(1).join(' ');//Toxic Codes
+const developers = ["351366504068939777"]//Nova Codes
+client.on('message', message => {//Nova Codes
+    var argresult = message.content.split(` `).slice(1).join(' ');//Nova Codes
       if (!developers.includes(message.author.id)) return;
      
   if (message.content.startsWith(adminprefix + 'setg')) {
     client.user.setGame(argresult);
       message.channel.send(`**✅   ${argresult}**`)
   } else
-     if (message.content === (adminprefix + "leave")) {//Toxic Codes
-    message.guild.leave();   //Toxic Codes
+     if (message.content === (adminprefix + "leave")) {//Nova Codes
+    message.guild.leave();   //Nova Codes
   } else  
   if (message.content.startsWith(adminprefix + 'setw')) {
-  client.user.setActivity(argresult, {type:'WATCHING'});//Toxic Codes
-      message.channel.send(`**✅   ${argresult}**`)//Toxic Codes
+  client.user.setActivity(argresult, {type:'WATCHING'});//Nova Codes
+      message.channel.send(`**✅   ${argresult}**`)//Nova Codes
   } else
   if (message.content.startsWith(adminprefix + 'setl')) {
   client.user.setActivity(argresult , {type:'LISTENING'});
-      message.channel.send(`**✅   ${argresult}**`)//Toxic Codes
+      message.channel.send(`**✅   ${argresult}**`)//Nova Codes
   } else
   if (message.content.startsWith(adminprefix + 'sets')) {
-    client.user.setGame(argresult, "https://www.twitch.tv/N O V AA♥");
-      message.channel.send(`**✅**`)//Toxic Codes
+    client.user.setGame(argresult, "https://www.twitch.tv/♥ Premium ℕova ♥");
+      message.channel.send(`**✅**`)//Nova Codes
   }
   if (message.content.startsWith(adminprefix + 'setname')) {
   client.user.setUsername(argresult).then
       message.channel.send(`Changing The Name To ..**${argresult}** `)
 } else
-  if (message.content.startsWith(adminprefix + 'setprefix')) {//Toxic Codes
+  if (message.content.startsWith(adminprefix + 'setprefix')) {//Nova Codes
   client.user.setPrefix(argresult).then
-      message.channel.send(`Changing Prefix ..**${argresult}** `)//Toxic Codes
+      message.channel.send(`Changing Prefix ..**${argresult}** `)//Nova Codes
 } else
-if (message.content.startsWith(adminprefix + 'setavatar')) {//Toxic Codes
+if (message.content.startsWith(adminprefix + 'setavatar')) {//Nova Codes
   client.user.setAvatar(argresult);
-    message.channel.send(`Changing The Avatar To :**${argresult}** `);//Toxic Codes
+    message.channel.send(`Changing The Avatar To :**${argresult}** `);//Nova Codes
 }
-});//Toxic Codes
+});//Nova Codes
 client.login(process.env.BOT_TOKEN);
