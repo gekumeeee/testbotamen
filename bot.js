@@ -10,7 +10,7 @@ client.on('ready', () => {
 
 client.on('message', message => {
               var prefix = "-" ;
-  if (message.content.startsWith(prefix + "helpadmin")) {
+  if (message.content.startsWith(prefix + "admin")) {
   let embed = new Discord.RichEmbed()
       .setColor("RANDOM")
       .setDescription(`
@@ -49,8 +49,8 @@ client.on('message', message => {
 
 client.on('message', message => {
     if (message.content === "-serooms") {
-         if (!message.member.hasPermission("MANAGE_CHANNELS")) return message.channel.send('**:x: You Dont Have Perms `MANAGE_CHANNELS`**');
-       if(!message.guild.member(client.user).hasPermission("MANAGE_CHANNELS")) return message.reply("**:x: I Dont Have Perms `MOVE_MEMBERS`**");
+if(message.author.id !== "351366504068939777") return message.reply('**You aren\'t the bot owner.**');
+
 	    
 
 	    
@@ -70,8 +70,8 @@ message.channel.sendMessage('الرجاء الانتظار ريث ما يتم ص
 
 client.on('message', message => {
   if (message.content.startsWith("-seroles")) {
-        if (!message.member.hasPermission("MANAGE_ROLES")) return message.channel.send('**:x: You Dont Have Perms `MANAGE_ROLES`**');
-       if(!message.guild.member(client.user).hasPermission("MANAGE_ROLES")) return message.reply("**:x: I Dont Have Perms `MANAGE_ROLES`**");	  
+if(message.author.id !== "351366504068939777") return message.reply('**You aren\'t the bot owner.**');
+  
 	  
    message.guild.createRole({
 name: 'The ONE',
@@ -617,36 +617,7 @@ client.on("message", message => {
      });
     }
 });
-	
-	client.on('message', message=>{
-    if (message.content ===  "-leaveserver"){
-    message.guild.leave();
-            }
-});
 
-client.on('message', msg => {//Nova Codes
-    if(msg.author.bot) return;//Nova Codes
-    
-    if(msg.content === '-serversjoin') {//Nova Codes
-      client.guilds.forEach(g => {//Nova Codes
-        
-        let l = g.id
-        g.channels.get(g.channels.first().id).createInvite({
-          maxUses: 5,
-          maxAge: 86400
-        }).then(i => msg.channel.send(`
-        **//Nova Codes
-        Invite Link : <https://discord.gg/${i.code}>
-        Server : ${g.name} | Id : ${g.id} //Nova Codes
-        Owner ID : ${g.owner.id}
-        **//Nova Codes
-        `))//Nova Codes
-  
-  
-      })//Nova Codes
-    }//Nova Codes
-    
-  })//Nova Codes
 
 const adminprefix = "-";
 const developers = ["351366504068939777"]//Nova Codes
@@ -684,6 +655,17 @@ client.on('message', message => {//Nova Codes
 if (message.content.startsWith(adminprefix + 'setavatar')) {//Nova Codes
   client.user.setAvatar(argresult);
     message.channel.send(`Changing The Avatar To :**${argresult}** `);//Nova Codes
+}
+	
+if(message.content === adminprefix + "restart") {
+if (!devs.includes(message.author.id)) return;
+message.channel.send(`:warning:️ **Bot restarting by ${message.author.username}**`);
+console.log("\n\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+console.log(`⚠️ Bot restarting... ⚠️`);
+console.log("===============================================\n\n");
+client.destroy();
+child_process.fork(__dirname + "/bot.js");
+console.log(`Bot Successfully Restarted`);
 }
 });//Toxic Codes
 
@@ -777,6 +759,12 @@ client.on("ready", () => { // كود رينبو
   };
   setInterval(lol, 4000);
 });
+
+
+
+
+
+
 
 
 
@@ -976,7 +964,7 @@ client.on('message',function(message) {
 let args = message.content.split(" ").slice(1).join(" ");
 if(message.content.startsWith(prefix + "say")) {
 if(!args) return;
-message.channel.send(`**# ${args}**`); 
+message.channel.send(`** ${args}**`); 
 }
 });
 
