@@ -656,17 +656,7 @@ if (message.content.startsWith(adminprefix + 'setavatar')) {//Nova Codes
   client.user.setAvatar(argresult);
     message.channel.send(`Changing The Avatar To :**${argresult}** `);//Nova Codes
 }
-	
-if(message.content === adminprefix + "restart") {
-if (!devs.includes(message.author.id)) return;
-message.channel.send(`:warning:️ **Bot restarting by ${message.author.username}**`);
-console.log("\n\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-console.log(`⚠️ Bot restarting... ⚠️`);
-console.log("===============================================\n\n");
-client.destroy();
-child_process.fork(__dirname + "/bot.js");
-console.log(`Bot Successfully Restarted`);
-}
+
 });//Toxic Codes
 
 
