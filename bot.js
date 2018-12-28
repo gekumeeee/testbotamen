@@ -124,25 +124,7 @@ message.channel.send('**Roles Was Succsesfluy Created**')
 
 
 
-client.on('message' , message => {
-    if (message.content === "-shutdown") {
-        if(message.author.id !== "351366504068939777") return message.reply('**You aren\'t the bot owner.**');
-        if ((r=>[""].includes(r.name)) ) {
-                     message.channel.sendMessage("**Currently Shutting down...** ") // This Code Edit By Mazchy . 
-        setTimeout(function() {
-            client.destroy();
-            process.exit(0);
-        }, 2000);
-        } else {
 
-            return message.reply(`I cannot do that for you unfortunately`)
-                .then(message => {
-                    message.delete(10000);
-                }).catch(console.log);
-        }
-       
-    }
-});
 client.on('ready', () => {
   console.log('I am ready!');
 });
@@ -656,16 +638,7 @@ if (message.content.startsWith(adminprefix + 'setavatar')) {//Nova Codes
   client.user.setAvatar(argresult);
     message.channel.send(`Changing The Avatar To :**${argresult}** `);//Nova Codes
 }
-    if(message.content === adminprefix + "restart") {
-      if (!devs.includes(message.author.id)) return;
-          message.channel.send(`:warning:️ **Bot restarting by ${message.author.username}**`);
-        console.log("\n\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-        console.log(`⚠️ Bot restarting... ⚠️`);
-        console.log("===============================================\n\n");
-        client.destroy();
-        child_process.fork(__dirname + "/bot.js");
-        console.log(`Bot Successfully Restarted`);
-    }
+
 });//Toxic Codes
 
 
