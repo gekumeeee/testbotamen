@@ -1002,9 +1002,12 @@ client.on("message", (message) => {
     }
  
  
-  if (message.content.startsWith("-close")) {
-if(message.author.id !== "351366504068939777") return message.reply('**You aren\'t the bot owner.**');
-
+if (message.content.startsWith("-close")) {
+        if (!message.channel.name.startsWith(`ticket-`)) return message.channel.send(`You can't use the close command outside of a ticket channel.`);
+ 
+       message.channel.send(`هل انت متأكد من اقفالك للتذكرة اذا متأكد اكتب -confirm`)
+           .then((m) => {
+               message.channel.awaitMessages(response => response.content === '-confirm', {
                        max: 1,
                        time: 10000000,
                        errors: ['time'],
