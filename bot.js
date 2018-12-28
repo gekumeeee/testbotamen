@@ -1004,7 +1004,7 @@ client.on("message", (message) => {
  
   if (message.content.startsWith("-close")) {
 if(message.author.id !== "351366504068939777") return message.reply('**You aren\'t the bot owner.**');
-               message.channel.awaitMessages(response => response.content === '-confirm', {
+
                        max: 1,
                        time: 10000000,
                        errors: ['time'],
