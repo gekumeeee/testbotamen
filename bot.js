@@ -732,13 +732,6 @@ var cont = message.content.slice(prefix.length).split(" ");
 
 
 
-client.on("ready", () => { // كود رينبو
-  function lol() {
-    client.guilds.get('527003552632274944').roles.find("name", "Commander").setColor("RANDOM");
-  };
-  setInterval(lol, 4000);
-});
-
 
 var prefix = "-";
    client.on('message',function(message) { // Leaked by [ @M3a4x ]
