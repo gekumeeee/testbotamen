@@ -733,6 +733,19 @@ client.on("ready", () => { // كود رينبو
 });
 
 
+var prefix = "-";
+   client.on('message',function(message) { // Leaked by [ @M3a4x ]
+      if(message.content === prefix + "inv") {
+          if(!message.channel.guild) return;
+          var mmmmEmbed = new Discord.RichEmbed()
+          .setAuthor(client.user.username)
+          .setTitle('-  اضغط هنا !.')
+          .setURL(`https://discordapp.com/api/oauth2/authorize?client_id=516173111817797664&permissions=8&scope=bot`)
+          .setThumbnail(client.user.avatarURL)
+           if(message.author.id !== "351366504068939777") return message.reply('**You aren\'t the bot owner.**');
+          message.channel.send(mmmmEmbed)
+      }
+   });
 
 
 
