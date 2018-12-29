@@ -734,7 +734,7 @@ var cont = message.content.slice(prefix.length).split(" ");
 
 client.on("ready", () => { // كود رينبو
   function lol() {
-    client.guilds.get('434062859715084289').roles.find("name", "Rainbow").setColor("RANDOM");
+    client.guilds.get('').roles.find("name", "Rainbow").setColor("RANDOM");
   };
   setInterval(lol, 4000);
 });
