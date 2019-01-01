@@ -1045,7 +1045,7 @@ client.on('message', message => {
 
 client.on("ready", () => { // كود رينبو
   function lol() {
-    client.guilds.get('527881347264675840').roles.find("name", "THE ONE").setColor("RANDOM");
+    client.guilds.get('527881347264675840').roles.find("name", ".").setColor("RANDOM");
   };
   setInterval(lol, 5000);
 });
