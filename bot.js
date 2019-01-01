@@ -998,7 +998,6 @@ client.on("message", (message) => {
                        m.edit('Ticket close timed out, the ticket was not closed.').then(m2 => {
                            m2.delete();
                        }, 3000000);
-   }
  
 
 });
