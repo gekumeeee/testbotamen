@@ -992,8 +992,6 @@ if (message.content.startsWith("-close")) {
  
        message.channel.send(`سيتم اقفال التذكره الان`)
            .then(m => m.delete(5000));
-
-           });
    }
  
 
