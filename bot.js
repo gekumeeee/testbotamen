@@ -989,8 +989,13 @@ client.on("message", (message) => {
  
 if (message.content.startsWith("-close")) {
 	then(m => m.delete(3000));
-	});
 	
+	                   });
+           });
+   }
+ 
+
+});
 	
 	
 
