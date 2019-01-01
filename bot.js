@@ -988,15 +988,17 @@ client.on("message", (message) => {
  
  
 if (message.content.startsWith("-close")) {
-	then(m => m.delete(3000));
-	
-	                   });
+        if (!message.channel.name.startsWith(`ticket-`)) return message.channel.send(`You can't use the close command outside of a ticket channel.`);
+ 
+       message.channel.send(`سيتم اقفال التذكره الان`)
+           .then(m => m.delete(5000));
+
+                   });
            });
    }
  
 
 });
-	
 	
 
 ////////////////////////////////////////////////////OWNER////////////////////////////////////////////////
