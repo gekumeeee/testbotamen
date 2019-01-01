@@ -975,7 +975,7 @@ client.on("message", (message) => {
                 SEND_MESSAGES: true,
                 READ_MESSAGES: true
             });
-            message.channel.send.addField(`:white_check_mark: تم انشاء تذكرتك, #${c.name}.`);
+            message.channel.send(```:white_check_mark: تم انشاء تذكرتك, #${c.name}.```);
             const embed = new Discord.RichEmbed()
                 .setColor(0xCF40FA)
                 .addField(`Hey ${message.author.username}!`, `تم فتح تذكرة الرجاء انتظار الى حين يأتي مشرف ويقوم بلرد عليك`)
@@ -988,28 +988,11 @@ client.on("message", (message) => {
  
  
 if (message.content.startsWith("-close")) {
-        if (!message.channel.name.startsWith(`ticket-`)) return message.channel.send(`You can't use the close command outside of a ticket channel.`);
- 
-       message.channel.send(`هل انت متأكد من اقفالك للتذكرة اذا متأكد اكتب -confirm`)
-           .then((m) => {
-               message.channel.awaitMessages(response => response.content === '-confirm', {
-                       max: 1,
-                       time: 10000000,
-                       errors: ['time'],
-                   })    /// DREAM
-                   .then((collected) => {
-                       message.channel.delete();
-                   })    /// DREAM
-                   .catch(() => {
-                       m.edit('Ticket close timed out, the ticket was not closed.').then(m2 => {
-                           m2.delete();
-                       }, 3000000);
-                   });
-           });
-   }
- 
-
-});
+if message.channel.send(هل متاكد من قفل التذكره).then(m => m.delete(3000));
+	});
+	
+	
+	
 
 ////////////////////////////////////////////////////OWNER////////////////////////////////////////////////
 client.on('message', message => {
