@@ -988,7 +988,7 @@ client.on("message", (message) => {
  
  
 if (message.content.startsWith("-close")) {
-if message.channel.send(هل متاكد من قفل التذكره).then(m => m.delete(3000));
+	then(m => m.delete(3000));
 	});
 	
 	
