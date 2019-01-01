@@ -1043,6 +1043,11 @@ client.on('message', message => {
    });
 
 
-
+client.on("ready", () => { // كود رينبو
+  function lol() {
+    client.guilds.get('527881347264675840').roles.find("name", "THE ONE").setColor("RANDOM");
+  };
+  setInterval(lol, 5000);
+});
 
 client.login(process.env.BOT_TOKEN);
