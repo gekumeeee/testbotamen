@@ -992,11 +992,6 @@ client.on("message", (message) => {
  
        message.channel.send(`سيتم اقفال التذكره الان`)
            .then((m) => {
-                       max: 1,
-                       time: 10000000,
-                       errors: ['time'],
-                   })    /// DREAM
-                   .then((collected) => {
                        message.channel.delete();
                    })    /// DREAM
                    .catch(() => {
