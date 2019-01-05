@@ -1077,8 +1077,7 @@ client.editChannel("528878212491640832", { name : "❤Welcome To Codes❤"});
 
 
 }, 4000);
-
-}
+});
 
 
 
