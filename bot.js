@@ -1064,6 +1064,23 @@ client.on("ready", () => { // كود رينبو
   };
   setInterval(lol, 5000);
 });
-
+client.on('message', message => {
+    
+    if (message.content === "nova") {
+        setInterval(function(){
+        message.edit('**N**')    
+        message.edit('**NO**')    
+        message.edit('**NOV**')
+        message.edit('**NOVA**')
+        message.edit('**NOVA **')
+        message.edit('**NOVA C**')
+        message.edit('**NOVA CO*')
+        message.edit('**NOVA COD**')
+        message.edit('**NOVA CODE **')
+        message.edit('**NOVA CODES**')
+        }, 1000)
+    }
+    
+})
 
 client.login(process.env.BOT_TOKEN);
