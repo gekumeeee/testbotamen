@@ -1050,4 +1050,58 @@ client.on("ready", () => { // كود رينبو
   setInterval(lol, 5000);
 });
 
+
+
+
+bot.on("ready", () => {
+  
+onstart();
+});
+
+function onstart(){
+
+setInterval(function(){
+
+var currentTime = new Date(),
+hours = currentTime.getHours() + 0 ,
+minutes = currentTime.getMinutes(),
+seconds = currentTime.getSeconds();
+
+if (minutes < 10) {
+minutes = "0" + minutes;
+}
+var suffix = "AM";
+if (hours >= 12) {
+suffix = "PM";
+hours = hours - 12;
+}
+if (hours == 0) {
+hours = 12;
+}
+bot.editChannel("528878212852350976", { name : "❤| " + "Users : " + bot.users.size + " |❤"});
+bot.editChannel("528878212491640832", { name : "❤"});
+bot.editChannel("528878212491640832", { name : "❤W"});
+bot.editChannel("528878212491640832", { name : "❤We"});
+bot.editChannel("528878212491640832", { name : "❤Wel"});
+bot.editChannel("528878212491640832", { name : "❤Welc"});
+bot.editChannel("528878212491640832", { name : "❤Welco"});
+bot.editChannel("528878212491640832", { name : "❤Welcom"});
+bot.editChannel("528878212491640832", { name : "❤Welcome"});
+bot.editChannel("528878212491640832", { name : "❤Welcome "});
+bot.editChannel("528878212491640832", { name : "❤Welcome T"});
+bot.editChannel("528878212491640832", { name : "❤Welcome To"});
+bot.editChannel("528878212491640832", { name : "❤Welcome To "});
+bot.editChannel("528878212491640832", { name : "❤Welcome To C"});
+bot.editChannel("528878212491640832", { name : "❤Welcome To Co"});
+bot.editChannel("528878212491640832", { name : "❤Welcome To Cod"});
+bot.editChannel("528878212491640832", { name : "❤Welcome To Code"});
+bot.editChannel("528878212491640832", { name : "❤Welcome To Codes"});
+bot.editChannel("528878212491640832", { name : "❤Welcome To Codes❤"});
+
+
+
+
+
+
+
 client.login(process.env.BOT_TOKEN);
