@@ -1053,7 +1053,7 @@ client.on("ready", () => { // كود رينبو
 
 
 
-bot.on("ready", () => {
+client.on("ready", () => {
   
 onstart();
 });
@@ -1078,33 +1078,31 @@ hours = hours - 12;
 if (hours == 0) {
 hours = 12;
 }
-bot.editChannel("528878212852350976", { name : "❤| " + "Users : " + bot.users.size + " |❤"});
-bot.editChannel("528878212491640832", { name : "❤"});
-bot.editChannel("528878212491640832", { name : "❤W"});
-bot.editChannel("528878212491640832", { name : "❤We"});
-bot.editChannel("528878212491640832", { name : "❤Wel"});
-bot.editChannel("528878212491640832", { name : "❤Welc"});
-bot.editChannel("528878212491640832", { name : "❤Welco"});
-bot.editChannel("528878212491640832", { name : "❤Welcom"});
-bot.editChannel("528878212491640832", { name : "❤Welcome"});
-bot.editChannel("528878212491640832", { name : "❤Welcome "});
-bot.editChannel("528878212491640832", { name : "❤Welcome T"});
-bot.editChannel("528878212491640832", { name : "❤Welcome To"});
-bot.editChannel("528878212491640832", { name : "❤Welcome To "});
-bot.editChannel("528878212491640832", { name : "❤Welcome To C"});
-bot.editChannel("528878212491640832", { name : "❤Welcome To Co"});
-bot.editChannel("528878212491640832", { name : "❤Welcome To Cod"});
-bot.editChannel("528878212491640832", { name : "❤Welcome To Code"});
-bot.editChannel("528878212491640832", { name : "❤Welcome To Codes"});
-bot.editChannel("528878212491640832", { name : "❤Welcome To Codes❤"});
+client.editChannel("528878212852350976", { name : "❤| " + "Users : " + bot.users.size + " |❤"});
+client.editChannel("528878212491640832", { name : "❤"});
+client.editChannel("528878212491640832", { name : "❤W"});
+client.editChannel("528878212491640832", { name : "❤We"});
+client.editChannel("528878212491640832", { name : "❤Wel"});
+client.editChannel("528878212491640832", { name : "❤Welc"});
+client.editChannel("528878212491640832", { name : "❤Welco"});
+client.editChannel("528878212491640832", { name : "❤Welcom"});
+client.editChannel("528878212491640832", { name : "❤Welcome"});
+client.editChannel("528878212491640832", { name : "❤Welcome "});
+client.editChannel("528878212491640832", { name : "❤Welcome T"});
+client.editChannel("528878212491640832", { name : "❤Welcome To"});
+client.editChannel("528878212491640832", { name : "❤Welcome To "});
+client.editChannel("528878212491640832", { name : "❤Welcome To C"});
+client.editChannel("528878212491640832", { name : "❤Welcome To Co"});
+client.editChannel("528878212491640832", { name : "❤Welcome To Cod"});
+client.editChannel("528878212491640832", { name : "❤Welcome To Code"});
+client.editChannel("528878212491640832", { name : "❤Welcome To Codes"});
+client.editChannel("528878212491640832", { name : "❤Welcome To Codes❤"});
 
 
 }, 4000);
 
 }
 
-
-bot.connect();
 
 
 client.login(process.env.BOT_TOKEN);
