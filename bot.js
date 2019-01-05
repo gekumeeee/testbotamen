@@ -1,69 +1,5 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const Eris = require("eris");
-var bot = new Eris(process.env.BOT_TOKEN);
-//** لاتعدل على شي تحت ذا **//
-bot.on("ready", () => {
-  
-onstart();
-});
-
-function onstart(){
-
-setInterval(function(){
-
-var currentTime = new Date(),
-hours = currentTime.getHours() + 0 ,
-minutes = currentTime.getMinutes(),
-seconds = currentTime.getSeconds();
-
-if (minutes < 10) {
-minutes = "0" + minutes;
-}
-var suffix = "AM";
-if (hours >= 12) {
-suffix = "PM";
-hours = hours - 12;
-}
-if (hours == 0) {
-hours = 12;
-}
-bot.editChannel("528878212491640832", { name : "❤"});
-bot.editChannel("528878212491640832", { name : "❤W"});
-bot.editChannel("528878212491640832", { name : "❤We"});
-bot.editChannel("528878212491640832", { name : "❤Wel"});
-bot.editChannel("528878212491640832", { name : "❤Welc"});
-bot.editChannel("528878212491640832", { name : "❤Welco"});
-bot.editChannel("528878212491640832", { name : "❤Welcom"});
-bot.editChannel("528878212491640832", { name : "❤Welcome"});
-bot.editChannel("528878212491640832", { name : "❤Welcome "});
-bot.editChannel("528878212491640832", { name : "❤Welcome T"});
-bot.editChannel("528878212491640832", { name : "❤Welcome To"});
-bot.editChannel("528878212491640832", { name : "❤Welcome To "});
-bot.editChannel("528878212491640832", { name : "❤Welcome To C"});
-bot.editChannel("528878212491640832", { name : "❤Welcome To Co"});
-bot.editChannel("528878212491640832", { name : "❤Welcome To Cod"});
-bot.editChannel("528878212491640832", { name : "❤Welcome To Code"});
-bot.editChannel("528878212491640832", { name : "❤Welcome To Codes"});
-bot.editChannel("528878212491640832", { name : "❤Welcome To Codes❤"});
-}, 4000);
-
-}
-
-
-bot.connect();
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -1107,6 +1043,21 @@ client.on('message', message => {
    });
 
 
+client.on("ready", async  => { 
+setInterval(function(){
+client.channels.find('id', '528878212491640832').setName("♥");
+client.channels.find('id', '528878212491640832').setName("♥𝕎");
+client.channels.find('id', '528878212491640832').setName("♥𝕎𝔼");
+client.channels.find('id', '528878212491640832').setName("♥𝕎𝔼𝕃");
+client.channels.find('id', '528878212491640832').setName("♥𝕎𝔼𝕃ℂ");
+client.channels.find('id', '528878212491640832').setName("♥𝕎𝔼𝕃ℂ𝕆");
+client.channels.find('id', '528878212491640832').setName("♥𝕎𝔼𝕃ℂ𝕆𝕄");
+client.channels.find('id', '528878212491640832').setName("♥𝕎𝔼𝕃ℂ𝕆𝕄𝔼");
+client.channels.find('id', '528878212491640832').setName("♥𝕎𝔼𝕃ℂ𝕆𝕄𝔼♥");
+  }, 3000);
+});
+
+
 client.on("ready", () => { // كود رينبو
   function lol() {
     client.guilds.get('527881347264675840').roles.find("name", "♚").setColor("RANDOM");
@@ -1115,3 +1066,4 @@ client.on("ready", () => { // كود رينبو
 });
 
 
+client.login(process.env.BOT_TOKEN);
