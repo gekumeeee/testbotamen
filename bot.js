@@ -1,5 +1,70 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
+const Eris = require("eris");
+var bot = new Eris(process.env.BOT_TOKEN);
+//** لاتعدل على شي تحت ذا **//
+bot.on("ready", () => {
+  
+onstart();
+});
+
+function onstart(){
+
+setInterval(function(){
+
+var currentTime = new Date(),
+hours = currentTime.getHours() + 0 ,
+minutes = currentTime.getMinutes(),
+seconds = currentTime.getSeconds();
+
+if (minutes < 10) {
+minutes = "0" + minutes;
+}
+var suffix = "AM";
+if (hours >= 12) {
+suffix = "PM";
+hours = hours - 12;
+}
+if (hours == 0) {
+hours = 12;
+}
+bot.editChannel("528878212491640832", { name : "❤"});
+bot.editChannel("528878212491640832", { name : "❤W"});
+bot.editChannel("528878212491640832", { name : "❤We"});
+bot.editChannel("528878212491640832", { name : "❤Wel"});
+bot.editChannel("528878212491640832", { name : "❤Welc"});
+bot.editChannel("528878212491640832", { name : "❤Welco"});
+bot.editChannel("528878212491640832", { name : "❤Welcom"});
+bot.editChannel("528878212491640832", { name : "❤Welcome"});
+bot.editChannel("528878212491640832", { name : "❤Welcome "});
+bot.editChannel("528878212491640832", { name : "❤Welcome T"});
+bot.editChannel("528878212491640832", { name : "❤Welcome To"});
+bot.editChannel("528878212491640832", { name : "❤Welcome To "});
+bot.editChannel("528878212491640832", { name : "❤Welcome To C"});
+bot.editChannel("528878212491640832", { name : "❤Welcome To Co"});
+bot.editChannel("528878212491640832", { name : "❤Welcome To Cod"});
+bot.editChannel("528878212491640832", { name : "❤Welcome To Code"});
+bot.editChannel("528878212491640832", { name : "❤Welcome To Codes"});
+bot.editChannel("528878212491640832", { name : "❤Welcome To Codes❤"});
+}, 4000);
+
+}
+
+
+bot.connect();
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // playing
@@ -1050,33 +1115,3 @@ client.on("ready", () => { // كود رينبو
 });
 
 
-
-
-client.on("ready", () => {
-
-  function lol() {
-
-client.editChannel("528878212491640832", { name : "❤"});
-client.editChannel("528878212491640832", { name : "❤W"});
-client.editChannel("528878212491640832", { name : "❤We"});
-client.editChannel("528878212491640832", { name : "❤Wel"});
-client.editChannel("528878212491640832", { name : "❤Welc"});
-client.editChannel("528878212491640832", { name : "❤Welco"});
-client.editChannel("528878212491640832", { name : "❤Welcom"});
-client.editChannel("528878212491640832", { name : "❤Welcome"});
-client.editChannel("528878212491640832", { name : "❤Welcome "});
-client.editChannel("528878212491640832", { name : "❤Welcome T"});
-client.editChannel("528878212491640832", { name : "❤Welcome To"});
-client.editChannel("528878212491640832", { name : "❤Welcome To "});
-client.editChannel("528878212491640832", { name : "❤Welcome To C"});
-client.editChannel("528878212491640832", { name : "❤Welcome To Co"});
-client.editChannel("528878212491640832", { name : "❤Welcome To Cod"});
-client.editChannel("528878212491640832", { name : "❤Welcome To Code"});
-client.editChannel("528878212491640832", { name : "❤Welcome To Codes"});
-client.editChannel("528878212491640832", { name : "❤Welcome To Codes❤"});
-  };
-  setInterval(lol, 4000);
-});
-
-
-client.login(process.env.BOT_TOKEN);
