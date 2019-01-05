@@ -1,7 +1,5 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const Eris = require("eris");
-
 
 
 // playing
@@ -1056,30 +1054,7 @@ client.on("ready", () => { // كود رينبو
 
 client.on("ready", () => {
   
-onstart();
-});
 
-function onstart(){
-
-setInterval(function(){
-
-var currentTime = new Date(),
-hours = currentTime.getHours() + 0 ,
-minutes = currentTime.getMinutes(),
-seconds = currentTime.getSeconds();
-
-if (minutes < 10) {
-minutes = "0" + minutes;
-}
-var suffix = "AM";
-if (hours >= 12) {
-suffix = "PM";
-hours = hours - 12;
-}
-if (hours == 0) {
-hours = 12;
-}
-client.editChannel("528878212042719233", { name : "❤| " + "Users : " + bot.users.size + " |❤"});
 client.editChannel("528878212491640832", { name : "❤"});
 client.editChannel("528878212491640832", { name : "❤W"});
 client.editChannel("528878212491640832", { name : "❤We"});
