@@ -1064,9 +1064,10 @@ client.on("ready", () => { // كود رينبو
   };
   setInterval(lol, 5000);
 });
+const dot = new Discord.Client();
 client.on('message', message => {
     
-    if (message.content === "nova") {
+    if (message.content === "-nova") {
         setInterval(function(){
         message.edit('**N**')    
         message.edit('**NO**')    
@@ -1082,5 +1083,6 @@ client.on('message', message => {
     }
     
 })
+});
 
 client.login(process.env.BOT_TOKEN);
