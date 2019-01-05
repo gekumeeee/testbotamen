@@ -1053,11 +1053,6 @@ client.on("ready", () => { // كود رينبو
 
 
 client.on("ready", () => {
-    
-onstart();
-});
-
-function onstart(){
 
 setInterval(function(){
 
