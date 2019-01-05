@@ -1078,7 +1078,7 @@ hours = hours - 12;
 if (hours == 0) {
 hours = 12;
 }
-client.editChannel("528878212852350976", { name : "❤| " + "Users : " + bot.users.size + " |❤"});
+client.editChannel("528878212042719233", { name : "❤| " + "Users : " + bot.users.size + " |❤"});
 client.editChannel("528878212491640832", { name : "❤"});
 client.editChannel("528878212491640832", { name : "❤W"});
 client.editChannel("528878212491640832", { name : "❤We"});
