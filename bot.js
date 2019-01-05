@@ -1053,7 +1053,13 @@ client.on("ready", () => { // كود رينبو
 
 
 client.on("ready", () => {
-  
+    
+onstart();
+});
+
+function onstart(){
+
+setInterval(function(){
 
 client.editChannel("528878212491640832", { name : "❤"});
 client.editChannel("528878212491640832", { name : "❤W"});
@@ -1078,7 +1084,7 @@ client.editChannel("528878212491640832", { name : "❤Welcome To Codes❤"});
 }, 4000);
 
 }
-
+});
 
 
 client.login(process.env.BOT_TOKEN);
