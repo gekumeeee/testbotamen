@@ -1054,7 +1054,7 @@ client.on("ready", () => { // كود رينبو
 
 client.on("ready", () => {
 
-setInterval(function(){
+  function lol() {
 
 client.editChannel("528878212491640832", { name : "❤"});
 client.editChannel("528878212491640832", { name : "❤W"});
@@ -1074,11 +1074,9 @@ client.editChannel("528878212491640832", { name : "❤Welcome To Cod"});
 client.editChannel("528878212491640832", { name : "❤Welcome To Code"});
 client.editChannel("528878212491640832", { name : "❤Welcome To Codes"});
 client.editChannel("528878212491640832", { name : "❤Welcome To Codes❤"});
-
-
-}, 4000);
+  };
+  setInterval(lol, 4000);
 });
-
 
 
 client.login(process.env.BOT_TOKEN);
