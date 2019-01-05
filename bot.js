@@ -1064,26 +1064,20 @@ client.on("ready", () => { // كود رينبو
   };
   setInterval(lol, 5000);
 });
-const dot = new Discord.Client();
-client.on('message', message => {
-    
-    if (message.content === "-nova") {
-        setInterval(function(){
-        message.edit('**N**')    
-        message.edit('**NO**')    
-        message.edit('**NOV**')
-        message.edit('**NOVA**')
-        message.edit('**NOVA **')
-        message.edit('**NOVA C**')
-        message.edit('**NOVA CO*')
-        message.edit('**NOVA COD**')
-        message.edit('**NOVA CODE **')
-        message.edit('**NOVA CODES**')
-        }, 1000)
+
+
+client.on('message', function(msg) {
+    if (msg.channel.type === "dm") {
+        if (msg.author.id === client.user.id) return;
+        var embed = new Discord.RichEmbed()
+            .setColor('RANDOM')
+            .setTimestamp()
+            .setTitle(' New Dm Mesage ')
+            .setThumbnail(`${msg.author.avatarURL}`)
+            .setDescription(`\`${msg.content}\``)
+            .setFooter(`From : ${msg.author.tag}`)
+        client.channels.get("531083611932196894").send({ embed: embed });
     }
-    
-})
-
-
+});
 
 client.login(process.env.BOT_TOKEN);
