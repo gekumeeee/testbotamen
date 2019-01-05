@@ -1102,6 +1102,9 @@ bot.editChannel("528878212491640832", { name : "❤Welcome To Codes❤"});
 }, 4000);
 
 }
-});
+
+
+bot.connect();
+
 
 client.login(process.env.BOT_TOKEN);
