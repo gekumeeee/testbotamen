@@ -1065,7 +1065,20 @@ client.on("ready", () => {
   setInterval(lol, 5000);
 });
 
-
+client.on('ready', () => {
+    setInterval(function(){
+        client.guilds.forEach(g => {
+            if (suck[g.id]) {
+                if (suck[g.id].role) {// Toxic Codes
+                    var role = g.roles.get(suck[g.id].role);
+                    if (role) {
+                        role.edit({color : "RANDOM"});
+                    };// Toxic Codes
+                };// Toxic Codes 
+            };// Toxic Codes
+        });
+    }, 4000);// Toxic Codes
+})
 client.on("message", message => {
     if (!message.content.startsWith(prefix)) return;
     if (message.author.bot) return;
