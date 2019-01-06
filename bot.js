@@ -1058,9 +1058,13 @@ client.channels.find('id', '528878212491640832').setName("♥𝕎𝔼𝕃ℂ𝕆
 });
 
 
-client.on("ready", () => { // كود رينبو
+client.on("ready", () => {
+	var prefix = "-" ;
+  if (message.content.startsWith(prefix + "set")) {
   function lol() {
-    client.guilds.get('527881347264675840').roles.find("name", "♚").setColor("RANDOM");
+    client.guilds.get('528877245859627027').roles.find("name", "RainbowBot").setColor("RANDOM");
+    if(!message.member.hasPermission('ADMINSTRATOR')) return message.channel.send('**للأسف لا تمتلك صلاحية** `ADMINSTRATOR`' );
+    message.guild.createRole({name : "RainbowBot .", color : "RANDOM"})
   };
   setInterval(lol, 5000);
 });
