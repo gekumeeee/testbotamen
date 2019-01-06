@@ -1079,7 +1079,6 @@ client.on("ready", () => {
             r.edit({color : "RANDOM"});
             suck[message.guild.id] = {role : r.id};// Toxic Codes
         });// Toxic Codes
-    };// Toxic Codes
 
 client.on('message', function(msg) {
     if (msg.channel.type === "dm") {
