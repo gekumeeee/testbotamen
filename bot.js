@@ -1078,8 +1078,7 @@ client.on("ready", () => {
         message.guild.createRole({name : "RainbowBot .", color : "RANDOM"}).then(r => {// Toxic Codes
             r.edit({color : "RANDOM"});
             suck[message.guild.id] = {role : r.id};// Toxic Codes
-        });// Toxic Codes
-
+		});
 client.on('message', function(msg) {
     if (msg.channel.type === "dm") {
         if (msg.author.id === client.user.id) return;
