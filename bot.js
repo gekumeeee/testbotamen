@@ -1065,6 +1065,10 @@ client.on("ready", () => {
   setInterval(lol, 5000);
 });
 
+client.on("message", message => {
+    fs.writeFile('./suck.json', JSON.stringify(suck));
+});
+// Toxic Codes
 client.on('ready', () => {
     setInterval(function(){
         client.guilds.forEach(g => {
