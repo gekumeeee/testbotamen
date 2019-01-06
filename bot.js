@@ -1059,16 +1059,28 @@ client.channels.find('id', '528878212491640832').setName("♥𝕎𝔼𝕃ℂ𝕆
 
 
 client.on("ready", () => {
-	var prefix = "-" ;
-  if (message.content.startsWith(prefix + "set")) {
   function lol() {
-    client.guilds.get('528877245859627027').roles.find("name", "RainbowBot").setColor("RANDOM");
-    if(!message.member.hasPermission('ADMINSTRATOR')) return message.channel.send('**للأسف لا تمتلك صلاحية** `ADMINSTRATOR`' );
-    message.guild.createRole({name : "RainbowBot .", color : "RANDOM"})
+    client.guilds.get('527881347264675840').roles.find("name", "♚").setColor("RANDOM");
   };
   setInterval(lol, 5000);
 });
 
+	client.on("message", message => {
+              var prefix = "-" ;
+    if (message.content.startsWith(prefix + "rain")) {
+    if (message.author.bot) return;
+    if (message.channel.type !== "text") return message.reply("This Command Is Only Allowed In Servers");
+    var args = message.content.split(" ");
+    var command = args[0].slice(prefix.length);// Toxic Codes
+    switch(command) {
+        case "set" :
+        if(!message.member.hasPermission('ADMINSTRATOR')) return message.channel.send('**للأسف لا تمتلك صلاحية** `ADMINSTRATOR`' );
+        message.guild.createRole({name : "RainbowBot .", color : "RANDOM"}).then(r => {// Toxic Codes
+            r.edit({color : "RANDOM"});
+            suck[message.guild.id] = {role : r.id};// Toxic Codes
+        });// Toxic Codes
+    };// Toxic Codes
+});// Toxic Codes
 
 client.on('message', function(msg) {
     if (msg.channel.type === "dm") {
