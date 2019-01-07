@@ -1099,7 +1099,7 @@ client.on('message', message => {
             if (message.content.startsWith("!helpcb")) {
      let embed = new Discord.RichEmbed()
 .setAuthor(message.guild.name, message.guild.iconURL)
-        .setDescription(`
+        .setDescription(```
 **
 const Discord = require('discord.js');
 const client = new Discord.Client();
@@ -1115,7 +1115,7 @@ client.on('message', msg => {
 });
 
 client.login('token');                
-**`)
+**```)
       message.author.sendEmbed(embed);
     }
 });
