@@ -759,8 +759,8 @@ message.channel.sendMessage('تـم إنـشاء روم كـتابـي')
 client.on("message", (message) => {
 if (message.content.startsWith("-voice")) {
             if (!message.member.hasPermission('MANAGE_CHANNELS')) return message.reply("You Don't Have `MANAGE_CHANNELS` Premissions ");
-        let args = message.content.split(" ").slice(1);/Toxic Codes
-    message.guild.createChannel(args.join(' '), 'voice');/Toxic Codes
+        let args = message.content.split(" ").slice(1);
+    message.guild.createChannel(args.join(' '), 'voice');
     message.channel.sendMessage('تـم إنـشاء روم صـوتي')
    
 }
