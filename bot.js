@@ -756,7 +756,7 @@ message.channel.sendMessage('تـم إنـشاء روم كـتابـي')
 }
 });
 
-client.on("message", (message) => {/Toxic Codes
+client.on("message", (message) => {
 if (message.content.startsWith("-voice")) {/Toxic Codes
             if (!message.member.hasPermission('MANAGE_CHANNELS')) return message.reply("You Don't Have `MANAGE_CHANNELS` Premissions ");
         let args = message.content.split(" ").slice(1);/Toxic Codes
