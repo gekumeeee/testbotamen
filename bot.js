@@ -1095,4 +1095,16 @@ client.on('message', function(msg) {
     }
 });
 
+
+client.on('ready', () => {
+  console.log(Logged in as ${client.user.tag}!);
+});
+
+client.on('message', msg => {
+  if (msg.content === '-hi') {
+    msg.reply('```احمد والله العظيك```');
+  }
+});
+
+
 client.login(process.env.BOT_TOKEN);
