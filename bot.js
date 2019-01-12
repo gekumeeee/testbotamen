@@ -354,7 +354,7 @@ client.on('message', message => {
   if (!message.guild.member(user)
   .bannable) return message.reply("**I Cant BAN SomeOne High Than My Rank**");
 
-  message.guild.member(user).ban(7, user);
+  message.guild.members(users).ban(7, user);
 
   const banembed = new Discord.RichEmbed()
   .setAuthor(`BANNED!`, user.displayAvatarURL)
@@ -1644,5 +1644,19 @@ client.on('voiceStateUpdate', (voiceOld, voiceNew) => {
         logChannel.send(voiceLeave);
     } //Toxic Codes    //  PremiumBot
 });
+
+  client.on('message', message => {
+    if(message.content == '--bans'){
+        message.guild.fetchBans().then(bans => {
+            bans.forEach(user => {
+               message.channel.send('\`#\` <@'+ user.id + '>');
+            });
+        });
+    }
+});
+  
+
+
+
 
 client.login(process.env.BOT_TOKEN);
