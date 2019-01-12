@@ -514,7 +514,6 @@ client.on("message", message => {
 	var msg = message.content.toLowerCase();
 	if( !message.guild ) return;
 	if( !msg.startsWith( prefix + 'role' ) ) return;
-	if(!message.member.hasPermission('MANAGE_ROLES')) return message.channel.send(' **__You Dont Have Permissions__**');
 	if( msg.toLowerCase().startsWith( prefix + 'roleremove' ) ){
 		if( !args[0] ) return message.reply( '**:x: Mention User**' );
 		if( !args[1] ) return message.reply( '**:x: Write Name Of Role To Remove it From The User**' );
@@ -1645,16 +1644,7 @@ client.on('voiceStateUpdate', (voiceOld, voiceNew) => {
     } //Toxic Codes    //  PremiumBot
 });
 
-  client.on('message', message => {
-    if(message.content == '--bans'){
-        message.guild.fetchBans().then(bans => {
-            bans.forEach(user => {
-               message.channel.send('\`#\` <@'+ user.id + '>');
-            });
-        });
-    }
-});
-  
+
 
 
 
